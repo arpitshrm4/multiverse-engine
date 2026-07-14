@@ -49,6 +49,8 @@ const sectionsList = [
 export default function UniverseCPage() {
     const [activeSection, setActiveSection] = useState("hero");
 
+    console.log("Rendering UniverseCPage!");
+
     const scrollToSection = (id: string) => {
         setActiveSection(id);
         const element = document.getElementById(id);
@@ -100,7 +102,7 @@ export default function UniverseCPage() {
             </aside>
 
             {/* Main Content Area */}
-            <main className="flex-1 max-w-5xl mx-auto px-6 md:px-12 py-16 space-y-24 overflow-y-auto">
+            <main className="flex-1 max-w-5xl mx-auto px-6 md:px-12 py-16 space-y-24">
                 
                 {/* 01. Hero Section */}
                 <section id="hero" className="scroll-mt-16 space-y-6">
