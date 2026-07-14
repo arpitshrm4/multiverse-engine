@@ -40,7 +40,10 @@ export default function DimensionSwitcher() {
             {dimensions.map((dim) => (
                 <button
                     key={dim.id}
-                    onClick={() => setUniverse(dim.id)}
+                    onClick={() => {
+                        console.log("DimensionSwitcher: User clicked button to switch to ->", dim.id);
+                        setUniverse(dim.id);
+                    }}
                     className={`
             relative px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb000]

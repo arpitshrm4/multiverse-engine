@@ -359,8 +359,10 @@ export default function PlanetaryLobby({ onSelect }: { onSelect: (id: UniverseId
 
             <Canvas camera={{ position: [-10, 10, 14], fov: 50 }}>
                 <OrbitControls
+                    enableZoom={!isZooming}
+                    enableRotate={!isZooming}
                     enablePan={false}
-                    minDistance={3}
+                    minDistance={0.5}
                     maxDistance={20}
                     autoRotate={!isZooming}
                     autoRotateSpeed={0.5}

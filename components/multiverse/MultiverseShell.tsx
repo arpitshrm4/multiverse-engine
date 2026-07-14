@@ -40,6 +40,10 @@ export default function MultiverseShell() {
     const [booted, setBooted] = useState(false);
     const inLobby = universe === 'LOBBY';
 
+    useEffect(() => {
+        console.log("MultiverseShell state change - universe:", universe, "booted:", booted, "inLobby:", inLobby);
+    }, [universe, booted, inLobby]);
+
     // ESC and R key handlers to return to lobby
     useEffect(() => {
         const handleKeyPress = (event: KeyboardEvent) => {
