@@ -123,11 +123,11 @@ export default function UniverseCPage() {
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.3em] block">
                             {"CASE STUDY // Government Digital Transformation"}
                         </span>
-                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-white leading-tight font-light tracking-tight">
-                            {"Scaling India's Manuscript Discovery from "}
-                            <span className="font-sans text-5xl font-semibold">{"100K"}</span>
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-sans text-white leading-relaxed font-light tracking-tight">
+                            {"Designing a Discovery Platform That Scaled "}
+                            <span className="font-sans text-6xl font-semibold">{"100K"}</span>
                             {" Legacy Records to "}
-                            <span className="font-sans text-5xl font-semibold">{"14.3M+"}</span>
+                            <span className="font-sans text-6xl font-semibold">{"14.3M+"}</span>
                             {" Manuscripts"}
                         </h1>
                     </div>
@@ -262,7 +262,7 @@ export default function UniverseCPage() {
                             onClick={() => scrollToSection("mission")}
                             className="flex flex-col items-center gap-2 text-zinc-500 hover:text-emerald-400 transition-colors text-sm font-mono"
                         >
-                            <span>{"Read The Transformation Story"}</span>
+                            <span>{"How We Got Here"}</span>
                             <ChevronDown size={16} className="animate-bounce" />
                         </button>
                     </div>
