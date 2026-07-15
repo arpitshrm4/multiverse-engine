@@ -490,28 +490,28 @@ export default function UniverseCPage() {
                     {/* Decision Matrix Table */}
                     <div className="border border-[#1f1f23] bg-[#0c0c0e] rounded-xl overflow-hidden max-w-4xl">
                         <div className="p-4 border-b border-[#1f1f23] bg-zinc-900/50">
-                            <span className="text-sm font-mono text-zinc-400 uppercase tracking-wider">{"Strategic Prioritization Matrix"}</span>
+                            <span className="text-sm font-mono text-zinc-400 uppercase tracking-wider">{"Strategic Prioritisation"}</span>
                         </div>
                         <table className="w-full text-left border-collapse">
                             <thead>
                                 <tr className="border-b border-[#1f1f23] text-zinc-500 font-mono text-[10px] uppercase">
-                                    <th className="p-4">{"Strategy Model"}</th>
-                                    <th className="p-4">{"Friction / Cost"}</th>
-                                    <th className="p-4">{"Delivery Speed"}</th>
-                                    <th className="p-4">{"Status"}</th>
+                                    <th className="p-4">{"Option"}</th>
+                                    <th className="p-4">{"Investment"}</th>
+                                    <th className="p-4">{"Impact"}</th>
+                                    <th className="p-4">{"Decision"}</th>
                                 </tr>
                             </thead>
                             <tbody className="text-sm divide-y divide-[#1f1f23] text-zinc-400">
                                 <tr>
-                                    <td className="p-4 font-semibold text-white">{"Full custom component library (React/Figma)"}</td>
-                                    <td className="p-4">{"High (Consumes significant sprint resources)"}</td>
-                                    <td className="p-4 text-red-400">{"Delayed implementation schedule"}</td>
+                                    <td className="p-4 font-semibold text-white">{"Full Design System"}</td>
+                                    <td className="p-4">{"High effort across design and engineering"}</td>
+                                    <td className="p-4 text-red-400">{"Would delay MVP delivery"}</td>
                                     <td className="p-4"><span className="px-2 py-0.5 bg-red-950/20 border border-red-500/20 text-red-400 rounded-full font-mono text-[10px]">{"DEFERRED"}</span></td>
                                 </tr>
                                 <tr>
-                                    <td className="p-4 font-semibold text-emerald-400">{"Core Visual Tokens & Pattern rules"}</td>
-                                    <td className="p-4">{"Low (Minimal setup cost)"}</td>
-                                    <td className="p-4 text-emerald-400">{"Unlocked immediate sprints"}</td>
+                                    <td className="p-4 font-semibold text-emerald-400">{"Core Design Foundations"}</td>
+                                    <td className="p-4">{"Low effort with immediate usability benefits"}</td>
+                                    <td className="p-4 text-emerald-400">{"Enabled faster product delivery"}</td>
                                     <td className="p-4"><span className="px-2 py-0.5 bg-emerald-950/20 border border-emerald-500/20 text-emerald-400 rounded-full font-mono text-[10px]">{"CHOSEN"}</span></td>
                                 </tr>
                             </tbody>
@@ -524,13 +524,13 @@ export default function UniverseCPage() {
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"The Challenge"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"Building and maintaining a custom component library would have consumed a significant portion of our design and development sprints, delaying our pilot validation."}
+                                    {"As a first-of-its-kind product, many workflows, user journeys, and requirements were still evolving. Investing heavily in a comprehensive design system too early risked slowing delivery before we had validated the product itself."}
                                 </p>
                             </div>
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"The Decision"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"We postponed building a full design system, choosing instead to enforce core visual tokens and pattern guidelines. This meant accepting minor visual inconsistencies in early code releases to free up design sprint capacity."}
+                                    {"We deliberately postponed building a full design system and instead established lightweight design foundations—shared typography, colours, spacing, components, and interaction patterns. This allowed the team to maintain consistency while adapting quickly as the product evolved."}
                                 </p>
                             </div>
                         </div>
@@ -538,13 +538,13 @@ export default function UniverseCPage() {
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution & Outcome"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"Created spacing, typography, and color tokens that allowed the team to launch the platform pilot three months ahead of schedule, validating core user workflows with partner institutions."}
+                                    {"The team worked from a shared set of reusable UI foundations rather than a fully documented design system. This reduced unnecessary design effort, improved collaboration between designers and frontend developers, and helped us focus on validating the product experience during the initial launch."}
                                 </p>
                             </div>
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Reflection"}</span>
                                 <p className="text-sm text-zinc-200 italic font-sans">
-                                    {"\"Design leadership means balancing UI system maturity against product maturity. Design systems exist to scale patterns that work. Gating system development saved critical validation sprints.\""}
+                                    {"\"This decision changed how I think about design systems. A design system should help a product scale—it shouldn't slow down a product that is still discovering what it needs to become. We invested in consistency where it mattered most and allowed the system to mature alongside the product.\""}
                                 </p>
                             </div>
                         </div>
