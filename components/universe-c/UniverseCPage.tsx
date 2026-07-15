@@ -814,7 +814,7 @@ export default function UniverseCPage() {
                             <div className="flex gap-4 items-start">
                                 <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
                                 <div className="space-y-1">
-                                    <h4 className="text-base font-serif text-white font-semibold">{"Design for future scale"}</h4>
+                                    <h4 className="text-base font-sans text-white font-semibold">{"Design for future scale"}</h4>
                                     <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Design for the future, not today's scale."}</p>
                                     <p className="text-[15px] text-zinc-300 leading-relaxed">{"Discovery, metadata, and information architecture should anticipate growth rather than react to it."}</p>
                                 </div>
@@ -824,7 +824,7 @@ export default function UniverseCPage() {
                             <div className="flex gap-4 items-start">
                                 <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
                                 <div className="space-y-1">
-                                    <h4 className="text-base font-serif text-white font-semibold">{"Prioritize the product first"}</h4>
+                                    <h4 className="text-base font-sans text-white font-semibold">{"Prioritize the product first"}</h4>
                                     <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Prioritize the product before the system."}</p>
                                     <p className="text-[15px] text-zinc-300 leading-relaxed">{"Foundations matter, but only after the core experience has been validated."}</p>
                                 </div>
@@ -834,7 +834,7 @@ export default function UniverseCPage() {
                             <div className="flex gap-4 items-start">
                                 <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
                                 <div className="space-y-1">
-                                    <h4 className="text-base font-serif text-white font-semibold">{"Discovery before contribution"}</h4>
+                                    <h4 className="text-base font-sans text-white font-semibold">{"Discovery before contribution"}</h4>
                                     <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Let user intent guide product decisions."}</p>
                                     <p className="text-[15px] text-zinc-300 leading-relaxed">{"Discovery came before contribution because understanding existing knowledge was the platform's primary purpose."}</p>
                                 </div>
@@ -844,7 +844,7 @@ export default function UniverseCPage() {
                             <div className="flex gap-4 items-start">
                                 <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
                                 <div className="space-y-1">
-                                    <h4 className="text-base font-serif text-white font-semibold">{"Align people before processes"}</h4>
+                                    <h4 className="text-base font-sans text-white font-semibold">{"Align people before processes"}</h4>
                                     <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Alignment is a leadership skill."}</p>
                                     <p className="text-[15px] text-zinc-300 leading-relaxed">{"Reducing ambiguity for designers, developers, and stakeholders created more value than solving interface problems alone."}</p>
                                 </div>
@@ -854,7 +854,7 @@ export default function UniverseCPage() {
                             <div className="flex gap-4 items-start">
                                 <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
                                 <div className="space-y-1">
-                                    <h4 className="text-base font-serif text-white font-semibold">{"Simplicity creates trust"}</h4>
+                                    <h4 className="text-base font-sans text-white font-semibold">{"Simplicity creates trust"}</h4>
                                     <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Simplicity is a product strategy."}</p>
                                     <p className="text-[15px] text-zinc-300 leading-relaxed">{"The most impactful improvements weren't additional features—they were making the right actions easier to understand."}</p>
                                 </div>
