@@ -627,7 +627,7 @@ export default function UniverseCPage() {
                     </div>
                 </section>
 
-                {/* Chapter 7: TP 05 - Aligning People Over Designing Screens */}
+                {/* Chapter 7: TP 05 - Leadership Was About Aligning People More Than Designing Screens */}
                 <section id="tp-5" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-20">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
@@ -640,18 +640,20 @@ export default function UniverseCPage() {
 
                     {/* Workflow Diagram */}
                     <div className="border border-[#1f1f23] bg-[#0c0c0e] p-8 rounded-xl max-w-4xl space-y-4">
-                        <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"Dual-Track Sprint Shield Model"}</span>
+                        <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"How We Kept Delivery Moving"}</span>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="border border-zinc-800 bg-zinc-900/50 p-6 rounded-lg space-y-2">
-                                <span className="text-sm font-mono text-emerald-400 uppercase block">{"Track 1: Ambiguity Resolution"}</span>
+                                <span className="text-sm font-mono text-emerald-400 uppercase block">{"Aligning Stakeholders"}</span>
+                                <h5 className="text-sm font-bold text-white font-sans">{"Resolving Ambiguity"}</h5>
                                 <p className="text-sm text-zinc-400">
-                                    {"One designer worked directly with policy experts to prototype upcoming layout guidelines, mapping future constraints."}
+                                    {"I worked closely with stakeholders to clarify evolving requirements before they reached the broader design and development teams. Product decisions were discussed, validated, and refined before becoming implementation work."}
                                 </p>
                             </div>
                             <div className="border border-zinc-800 bg-zinc-900/50 p-6 rounded-lg space-y-2">
-                                <span className="text-sm font-mono text-emerald-400 uppercase block">{"Track 2: Development Sprints"}</span>
+                                <span className="text-sm font-mono text-emerald-400 uppercase block">{"Keeping Delivery Stable"}</span>
+                                <h5 className="text-sm font-bold text-white font-sans">{"Protecting Delivery"}</h5>
                                 <p className="text-sm text-zinc-400">
-                                    {"Two designers focused on stable interface blocks and development handoff specs to keep engineering active."}
+                                    {"While requirements continued to evolve, the remaining designers focused on stable UI components and developer handoffs. This allowed engineering to continue building without constantly reworking completed features."}
                                 </p>
                             </div>
                         </div>
@@ -663,13 +665,13 @@ export default function UniverseCPage() {
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"The Challenge"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"Frequent updates to policy details risked disrupting active development cycles and design sprints, leaving developers waiting for specifications."}
+                                    {"As a first-of-its-kind government platform, requirements frequently evolved through stakeholder discussions. Translating changing expectations directly into development would have created unnecessary rework and slowed delivery."}
                                 </p>
                             </div>
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"The Decision"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"We structured design sprints to run on parallel tracks: one track resolved policy ambiguity while the other defined stable frontend blocks. This required constant alignment checks but shielded developers from changing requirements."}
+                                    {"Instead of involving the entire team in every evolving discussion, I acted as the primary point of alignment with stakeholders. Once decisions were sufficiently clear, I communicated priorities, design direction, and implementation details to the wider design team, allowing delivery to continue with minimal disruption."}
                                 </p>
                             </div>
                         </div>
@@ -677,13 +679,13 @@ export default function UniverseCPage() {
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution & Outcome"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"Established component handoff patterns and co-developed interface frameworks to successfully navigate shifting specifications without delaying the launch."}
+                                    {"Regular design reviews, collaborative discussions, and shared UI foundations helped the team maintain consistency while adapting to changing requirements. This approach enabled three designers and engineering to continue delivering without losing momentum during the initial launch."}
                                 </p>
                             </div>
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Reflection"}</span>
                                 <p className="text-sm text-zinc-200 italic font-sans">
-                                    {"\"Design leaders are shock absorbers. Running dual-track sprints kept engineering focused on stable code blocks while we resolved policy details on the design side.\""}
+                                    {"\"This project changed my understanding of leadership. My responsibility wasn't to have every answer—it was to reduce uncertainty for the team. The more ambiguity I absorbed through stakeholder alignment, the more confidently designers and developers could focus on building the product.\""}
                                 </p>
                             </div>
                         </div>
