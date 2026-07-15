@@ -106,7 +106,7 @@ export default function UniverseCPage() {
                     </nav>
                 </div>
                 <div className="pt-6 border-t border-[#1f1f23]">
-                    <span className="text-sm font-mono text-zinc-500 uppercase tracking-widest block">
+                    <span className="text-sm font-mono text-zinc-400 uppercase tracking-widest block">
                         Story Mode v1.0
                     </span>
                 </div>
@@ -196,7 +196,7 @@ export default function UniverseCPage() {
                         <div className="md:col-span-2">
                             <span className="text-sm font-mono uppercase text-zinc-500 block">{"Ownership Scope"}</span>
                             <div className="grid grid-cols-2 gap-4 mt-2">
-                                <ul className="text-sm text-zinc-400 space-y-2 font-mono">
+                                <ul className="text-[15px] text-zinc-300 leading-relaxed space-y-2 font-mono">
                                     <li className="flex items-center gap-2">
                                         <span className="h-1 w-1 bg-emerald-400 rounded-full" />
                                         <span>{"Contributed to Product Strategy"}</span>
@@ -210,7 +210,7 @@ export default function UniverseCPage() {
                                         <span>{"Led Team"}</span>
                                     </li>
                                 </ul>
-                                <ul className="text-sm text-zinc-400 space-y-2 font-mono">
+                                <ul className="text-[15px] text-zinc-300 leading-relaxed space-y-2 font-mono">
                                     <li className="flex items-center gap-2">
                                         <span className="h-1 w-1 bg-emerald-400 rounded-full" />
                                         <span>{"Stakeholder Alignment"}</span>
@@ -233,15 +233,15 @@ export default function UniverseCPage() {
                         <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"System Transformation Model"}</span>
                         <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-4">
                             <div className="px-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-center w-full md:w-auto">
-                                <span className="font-mono text-sm text-zinc-400">{"Legacy Platform"}</span>
+                                <span className="font-mono text-[15px] text-zinc-300 leading-relaxed">{"Legacy Platform"}</span>
                             </div>
                             <div className="text-zinc-600 hidden md:block">{"➔"}</div>
                             <div className="px-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-center w-full md:w-auto">
-                                <span className="font-mono text-sm text-zinc-400">{"Scalable Discovery Platform"}</span>
+                                <span className="font-mono text-[15px] text-zinc-300 leading-relaxed">{"Scalable Discovery Platform"}</span>
                             </div>
                             <div className="text-zinc-600 hidden md:block">{"➔"}</div>
                             <div className="px-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-center w-full md:w-auto">
-                                <span className="font-mono text-sm text-zinc-400">
+                                <span className="font-mono text-[15px] text-zinc-300 leading-relaxed">
                                     <span className="font-sans font-normal">{"60+"}</span>
                                     {" Connected Institutions"}
                                 </span>
@@ -278,7 +278,7 @@ export default function UniverseCPage() {
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
                             {"Why Digitisation Alone Wasn't Enough"}
                         </h2>
-                        <p className="text-zinc-400 leading-relaxed text-sm md:text-base">
+                        <p className="text-zinc-300 leading-relaxed text-base md:text-lg font-light">
                             {"Preserving manuscripts was only the first step. The larger challenge was making millions of records discoverable across institutions with different cataloguing methods, metadata standards, and languages. Without a unified approach, valuable knowledge remained scattered, difficult to search, and inaccessible to researchers and the public."}
                         </p>
                     </div>
@@ -286,13 +286,13 @@ export default function UniverseCPage() {
                     <div className="grid md:grid-cols-2 gap-8 mt-8">
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-3">
                             <span className="text-sm font-mono text-emerald-400 uppercase">{"The Preservation Challenge"}</span>
-                            <p className="text-sm text-zinc-400 leading-relaxed">
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
                                 {"Many manuscripts existed only as fragile physical documents. Even when digitised, they remained vulnerable if records were incomplete, inconsistent, or difficult to maintain. Long-term preservation required more than scanning it required structured, reliable digital records."}
                             </p>
                         </div>
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-3">
                             <span className="text-sm font-mono text-emerald-400 uppercase">{"The Discovery Challenge"}</span>
-                            <p className="text-sm text-zinc-400 leading-relaxed">
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
                                 {"Collections were distributed across institutions using different metadata structures, naming conventions, and cataloguing practices. Finding a specific manuscript often required searching multiple systems, making discovery slow and inconsistent for both researchers and citizens."}
                             </p>
                         </div>
@@ -316,11 +316,11 @@ export default function UniverseCPage() {
                             <span className="absolute -left-10 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
-                            <span className="text-sm font-mono text-zinc-500 uppercase">
+                            <span className="text-sm font-mono text-zinc-400 uppercase">
                                 {"Legacy Platform"}
                             </span>
-                            <h4 className="text-sm font-semibold text-white">{"Search Had Limited Context"}</h4>
-                            <p className="text-sm text-zinc-400 max-w-2xl">
+                            <h4 className="text-base font-semibold text-white">{"Search Had Limited Context"}</h4>
+                            <p className="text-base text-zinc-300 leading-relaxed max-w-2xl font-light">
                                 {"The legacy platform supported basic keyword search, but discovery was constrained by inconsistent metadata and limited searchable fields. Users often struggled to find relevant manuscripts because the search experience depended on incomplete or differently structured catalog information."}
                             </p>
                         </div>
@@ -329,11 +329,11 @@ export default function UniverseCPage() {
                             <span className="absolute -left-10 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
-                            <span className="text-sm font-mono text-zinc-500 uppercase">
+                            <span className="text-sm font-mono text-zinc-400 uppercase">
                                 {"As the Platform Grew"}
                             </span>
-                            <h4 className="text-sm font-semibold text-white">{"Discovery Became Increasingly Complex"}</h4>
-                            <p className="text-sm text-zinc-400 max-w-2xl">
+                            <h4 className="text-base font-semibold text-white">{"Discovery Became Increasingly Complex"}</h4>
+                            <p className="text-base text-zinc-300 leading-relaxed max-w-2xl font-light">
                                 {"As the platform expanded to include manuscripts from multiple institutions, the challenge became more pronounced. Different metadata standards, languages, and cataloguing practices reduced search relevance, making it harder for users to consistently discover the manuscripts they were looking for."}
                             </p>
                         </div>
@@ -353,9 +353,9 @@ export default function UniverseCPage() {
                             <span className="absolute -left-10 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"Transformation"}</span>
+                            <span className="text-sm font-mono text-zinc-400 uppercase">{"Transformation"}</span>
                             <h4 className="text-sm font-semibold text-emerald-400">{"Better Metadata. Better Discovery."}</h4>
-                            <p className="text-sm text-zinc-400 max-w-2xl">
+                            <p className="text-base text-zinc-300 leading-relaxed max-w-2xl font-light">
                                 {"Rather than focusing only on the search interface, we prioritised improving how manuscript information was structured and presented. Standardising metadata, simplifying terminology, and redesigning the search experience together created a more reliable and discoverable platform."}
                             </p>
                         </div>
@@ -365,22 +365,22 @@ export default function UniverseCPage() {
                     <div className="space-y-6 max-w-4xl bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl">
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"The Challenge"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Challenge"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"Metadata from different institutions varied in structure, naming conventions, and completeness. Since the search engine relied on these fields, inconsistent metadata often resulted in less relevant search results and made manuscript discovery more difficult."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"The Decision"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Decision"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"We prioritised discoverability over adding more search features. Instead of expanding search capabilities, we focused on improving metadata quality, simplifying search interactions, and surfacing the most relevant information first."}
                                 </p>
                             </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution & Outcome"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"Execution & Outcome"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"The search experience was redesigned with clearer information hierarchy, simplified terminology, search suggestions, and metadata-driven improvements. These changes established a stronger foundation for discovering manuscripts across a growing collection of more than 14.3 million records."}
                                 </p>
                             </div>
@@ -410,7 +410,7 @@ export default function UniverseCPage() {
                         <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"Bringing 60+ Institutions into One Search Experience"}</span>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
                             <div className="border border-zinc-800 bg-zinc-900/50 p-4 rounded-lg space-y-3">
-                                <span className="text-sm font-mono text-zinc-500 uppercase tracking-wider block">
+                                <span className="text-sm font-mono text-zinc-400 uppercase tracking-wider block">
                                     <span className="font-sans font-normal">{"60+"}</span>
                                     {" Institutions"}
                                 </span>
@@ -420,7 +420,7 @@ export default function UniverseCPage() {
                                     <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library C"}</div>
                                     <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono text-zinc-500">{"..."}</div>
                                 </div>
-                                <p className="text-xs text-zinc-500 leading-normal">
+                                <p className="text-[15px] text-zinc-300 leading-relaxed leading-normal">
                                     {"Each institution managed manuscripts using its own metadata structure, naming conventions, and cataloguing practices."}
                                 </p>
                             </div>
@@ -447,22 +447,22 @@ export default function UniverseCPage() {
                     <div className="space-y-6 max-w-4xl bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl">
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"The Challenge"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Challenge"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"Every participating institution described manuscripts differently. Variations in metadata, terminology, and cataloguing practices made it difficult to deliver consistent search results across a growing national collection. Without a shared structure, users would receive incomplete or inconsistent results depending on where the manuscript originated."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"The Decision"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Decision"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"We established a common metadata framework that allowed institutions to preserve their local cataloguing practices while mapping essential fields into a consistent structure for discovery. This created a single search experience without requiring every institution to redesign its existing records."}
                                 </p>
                             </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution & Outcome"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"Execution & Outcome"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"The platform introduced a consistent metadata model for discovery, supported by improved validation, clearer field structures, and standardized search behaviour. This enabled users to search across more than 14.3 million manuscript records from over 60 participating institutions through a unified experience."}
                                 </p>
                             </div>
@@ -494,14 +494,14 @@ export default function UniverseCPage() {
                         </div>
                         <table className="w-full text-left border-collapse">
                             <thead>
-                                <tr className="border-b border-[#1f1f23] text-zinc-500 font-mono text-[10px] uppercase">
+                                <tr className="border-b border-[#1f1f23] text-zinc-400 font-mono text-xs uppercase">
                                     <th className="p-4">{"Option"}</th>
                                     <th className="p-4">{"Investment"}</th>
                                     <th className="p-4">{"Impact"}</th>
                                     <th className="p-4">{"Decision"}</th>
                                 </tr>
                             </thead>
-                            <tbody className="text-sm divide-y divide-[#1f1f23] text-zinc-400">
+                            <tbody className="text-sm divide-y divide-[#1f1f23] text-zinc-300">
                                 <tr>
                                     <td className="p-4 font-semibold text-white">{"Full Design System"}</td>
                                     <td className="p-4">{"High effort across design and engineering"}</td>
@@ -522,22 +522,22 @@ export default function UniverseCPage() {
                     <div className="space-y-6 max-w-4xl bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl">
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"The Challenge"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Challenge"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"As a first-of-its-kind product, many workflows, user journeys, and requirements were still evolving. Investing heavily in a comprehensive design system too early risked slowing delivery before we had validated the product itself."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"The Decision"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Decision"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"We deliberately postponed building a full design system and instead established lightweight design foundations—shared typography, colours, spacing, components, and interaction patterns. This allowed the team to maintain consistency while adapting quickly as the product evolved."}
                                 </p>
                             </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution & Outcome"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"Execution & Outcome"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"The team worked from a shared set of reusable UI foundations rather than a fully documented design system. This reduced unnecessary design effort, improved collaboration between designers and frontend developers, and helped us focus on validating the product experience during the initial launch."}
                                 </p>
                             </div>
@@ -565,30 +565,30 @@ export default function UniverseCPage() {
                     {/* Dialogue-style Storyboard */}
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-4xl">
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-2">
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"01 / Stakeholder Goal"}</span>
+                            <span className="text-sm font-mono text-zinc-400 uppercase">{"01 / Stakeholder Goal"}</span>
                             <h5 className="text-sm font-bold text-white">{"Always-Visible Upload Button"}</h5>
-                            <p className="text-sm text-zinc-400">
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
                                 {"Stakeholders wanted a prominent “Request for Digitisation” action on the homepage so users could immediately contribute manuscript information."}
                             </p>
                         </div>
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-2">
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"02 / User Goal"}</span>
+                            <span className="text-sm font-mono text-zinc-400 uppercase">{"02 / User Goal"}</span>
                             <h5 className="text-sm font-bold text-white">{"Discover Before They Contribute"}</h5>
-                            <p className="text-sm text-zinc-400">
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
                                 {"For most users, the first task was exploring the collection—not submitting a request. They needed confidence that a manuscript wasn't already available before taking any action."}
                             </p>
                         </div>
                         <div className="border border-red-500/20 bg-red-950/10 p-6 rounded-xl space-y-2">
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"03 / The Product Tension"}</span>
+                            <span className="text-sm font-mono text-zinc-400 uppercase">{"03 / The Product Tension"}</span>
                             <h5 className="text-sm font-bold text-red-400">{"Competing Priorities"}</h5>
-                            <p className="text-sm text-zinc-400">
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
                                 {"A persistent homepage CTA encouraged contribution before discovery. This risked distracting users from the platform's primary purpose and increased the likelihood of duplicate digitisation requests."}
                             </p>
                         </div>
                         <div className="border border-emerald-500/20 bg-emerald-950/10 p-6 rounded-xl space-y-2">
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"04 / The Resolution"}</span>
+                            <span className="text-sm font-mono text-zinc-400 uppercase">{"04 / The Resolution"}</span>
                             <h5 className="text-sm font-bold text-emerald-400">{"Context Instead of Constant Visibility"}</h5>
-                            <p className="text-sm text-zinc-400">
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
                                 {"Instead of a floating action button, we introduced a contextual \"Request for Digitisation\" banner. Users were encouraged to contribute only after exploring the collection and determining that a manuscript was not already available."}
                             </p>
                         </div>
@@ -598,22 +598,22 @@ export default function UniverseCPage() {
                     <div className="space-y-6 max-w-4xl bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl">
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"The Challenge"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Challenge"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"The homepage needed to serve a broad audience—from researchers and students to citizens discovering manuscripts for the first time. Making contribution the most prominent action conflicted with the platform's primary objective: helping users discover existing knowledge before requesting digitisation."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"The Decision"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Decision"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"We recommended removing the persistent homepage FAB and replacing it with a contextual call to action. This balanced stakeholder goals with user needs, keeping discovery as the primary experience while still providing a clear path for manuscript requests."}
                                 </p>
                             </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution & Outcome"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"Execution & Outcome"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"The homepage was redesigned to emphasise search and discovery. A dedicated banner introduced the digitisation request flow without interrupting exploration, resulting in a cleaner experience that better aligned with the platform's purpose."}
                                 </p>
                             </div>
@@ -645,14 +645,14 @@ export default function UniverseCPage() {
                             <div className="border border-zinc-800 bg-zinc-900/50 p-6 rounded-lg space-y-2">
                                 <span className="text-sm font-mono text-emerald-400 uppercase block">{"Aligning Stakeholders"}</span>
                                 <h5 className="text-sm font-bold text-white font-sans">{"Resolving Ambiguity"}</h5>
-                                <p className="text-sm text-zinc-400">
+                                <p className="text-[15px] text-zinc-300 leading-relaxed">
                                     {"I worked closely with stakeholders to clarify evolving requirements before they reached the broader design and development teams. Product decisions were discussed, validated, and refined before becoming implementation work."}
                                 </p>
                             </div>
                             <div className="border border-zinc-800 bg-zinc-900/50 p-6 rounded-lg space-y-2">
                                 <span className="text-sm font-mono text-emerald-400 uppercase block">{"Keeping Delivery Stable"}</span>
                                 <h5 className="text-sm font-bold text-white font-sans">{"Protecting Delivery"}</h5>
-                                <p className="text-sm text-zinc-400">
+                                <p className="text-[15px] text-zinc-300 leading-relaxed">
                                     {"While requirements continued to evolve, the remaining designers focused on stable UI components and developer handoffs. This allowed engineering to continue building without constantly reworking completed features."}
                                 </p>
                             </div>
@@ -663,22 +663,22 @@ export default function UniverseCPage() {
                     <div className="space-y-6 max-w-4xl bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl">
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"The Challenge"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Challenge"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"As a first-of-its-kind government platform, requirements frequently evolved through stakeholder discussions. Translating changing expectations directly into development would have created unnecessary rework and slowed delivery."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"The Decision"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Decision"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"Instead of involving the entire team in every evolving discussion, I acted as the primary point of alignment with stakeholders. Once decisions were sufficiently clear, I communicated priorities, design direction, and implementation details to the wider design team, allowing delivery to continue with minimal disruption."}
                                 </p>
                             </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution & Outcome"}</span>
-                                <p className="text-sm text-zinc-300">
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"Execution & Outcome"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
                                     {"Regular design reviews, collaborative discussions, and shared UI foundations helped the team maintain consistency while adapting to changing requirements. This approach enabled three designers and engineering to continue delivering without losing momentum during the initial launch."}
                                 </p>
                             </div>
@@ -709,7 +709,7 @@ export default function UniverseCPage() {
                             <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">
                                 {"PRODUCT OUTCOMES"}
                             </span>
-                            <ul className="text-sm text-zinc-400 space-y-3">
+                            <ul className="text-[15px] text-zinc-300 leading-relaxed space-y-3">
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
                                     <span>{"Search became the primary path for manuscript discovery."}</span>
@@ -763,7 +763,7 @@ export default function UniverseCPage() {
                             <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">
                                 {"LEADERSHIP OUTCOMES"}
                             </span>
-                            <ul className="text-sm text-zinc-400 space-y-3">
+                            <ul className="text-[15px] text-zinc-300 leading-relaxed space-y-3">
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
                                     <span>{"Aligned stakeholders across evolving product requirements."}</span>
@@ -786,23 +786,86 @@ export default function UniverseCPage() {
                 </section>
 
                 {/* Chapter 9: Reflection & Ending */}
-                <section id="reflection" className="scroll-mt-16 space-y-8 min-h-[40vh] flex flex-col justify-center max-w-3xl mx-auto">
+                <section id="reflection" className="scroll-mt-16 space-y-12 min-h-[90vh] flex flex-col justify-center max-w-3xl mx-auto py-12">
+                    {/* Header */}
                     <div className="space-y-4 text-center">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
                             {"REFLECTION"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
-                            {"The Strategic Takeaway"}
+                            {"What This Project Taught Me"}
                         </h2>
                     </div>
 
-                    <div className="space-y-8 mt-6">
-                        <p className="text-xl md:text-2xl text-zinc-200 font-sans italic leading-relaxed text-center">
-                            {"\"I entered this project expecting to solve interface problems. Instead, I learned that the hardest design challenges were organizational aligning policy, engineering, domain experts, and user needs into one coherent product strategy.\""}
-                        </p>
-                        <div className="w-12 h-px bg-emerald-500/50 mx-auto" />
-                        <p className="text-sm md:text-base text-zinc-400 leading-relaxed text-center">
-                            {"Gyan Bharatam fundamentally changed how I think about product strategy, design leadership, and designing for national scale. It proved that a design leader's primary tool is alignment unlocking complex cross-functional pathways to create lasting preservation platforms."}
+                    {/* Large Memorable Quote */}
+                    <div className="py-8 border-t border-b border-[#1f1f23] border-dashed text-center">
+                        <blockquote className="text-xl md:text-3xl font-serif text-emerald-400 leading-normal max-w-2xl mx-auto italic">
+                            {"\"Great product design isn't about creating more features. It's about helping people make better decisions at scale.\""}
+                        </blockquote>
+                    </div>
+
+                    {/* 5 Leadership Principles */}
+                    <div className="space-y-8">
+                        <h3 className="text-sm font-mono uppercase text-zinc-500 tracking-wider">
+                            {"What I'll Carry Forward"}
+                        </h3>
+                        <div className="space-y-6">
+                            {/* Principle 1 */}
+                            <div className="flex gap-4 items-start">
+                                <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
+                                <div className="space-y-1">
+                                    <h4 className="text-base font-serif text-white font-semibold">{"Design for future scale"}</h4>
+                                    <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Design for the future, not today's scale."}</p>
+                                    <p className="text-[15px] text-zinc-300 leading-relaxed">{"Discovery, metadata, and information architecture should anticipate growth rather than react to it."}</p>
+                                </div>
+                            </div>
+
+                            {/* Principle 2 */}
+                            <div className="flex gap-4 items-start">
+                                <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
+                                <div className="space-y-1">
+                                    <h4 className="text-base font-serif text-white font-semibold">{"Prioritize the product first"}</h4>
+                                    <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Prioritize the product before the system."}</p>
+                                    <p className="text-[15px] text-zinc-300 leading-relaxed">{"Foundations matter, but only after the core experience has been validated."}</p>
+                                </div>
+                            </div>
+
+                            {/* Principle 3 */}
+                            <div className="flex gap-4 items-start">
+                                <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
+                                <div className="space-y-1">
+                                    <h4 className="text-base font-serif text-white font-semibold">{"Discovery before contribution"}</h4>
+                                    <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Let user intent guide product decisions."}</p>
+                                    <p className="text-[15px] text-zinc-300 leading-relaxed">{"Discovery came before contribution because understanding existing knowledge was the platform's primary purpose."}</p>
+                                </div>
+                            </div>
+
+                            {/* Principle 4 */}
+                            <div className="flex gap-4 items-start">
+                                <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
+                                <div className="space-y-1">
+                                    <h4 className="text-base font-serif text-white font-semibold">{"Align people before processes"}</h4>
+                                    <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Alignment is a leadership skill."}</p>
+                                    <p className="text-[15px] text-zinc-300 leading-relaxed">{"Reducing ambiguity for designers, developers, and stakeholders created more value than solving interface problems alone."}</p>
+                                </div>
+                            </div>
+
+                            {/* Principle 5 */}
+                            <div className="flex gap-4 items-start">
+                                <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
+                                <div className="space-y-1">
+                                    <h4 className="text-base font-serif text-white font-semibold">{"Simplicity creates trust"}</h4>
+                                    <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Simplicity is a product strategy."}</p>
+                                    <p className="text-[15px] text-zinc-300 leading-relaxed">{"The most impactful improvements weren't additional features—they were making the right actions easier to understand."}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Closing Line */}
+                    <div className="pt-6 border-t border-[#1f1f23] text-center">
+                        <p className="text-[15px] text-zinc-400 font-mono italic">
+                            {"These principles continue to shape how I lead product teams and approach large-scale digital transformation projects."}
                         </p>
                     </div>
                 </section>
