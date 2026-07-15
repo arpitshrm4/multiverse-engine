@@ -233,19 +233,25 @@ export default function UniverseCPage() {
                         <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"System Transformation Model"}</span>
                         <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-4">
                             <div className="px-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-center w-full md:w-auto">
-                                <span className="font-mono text-sm text-zinc-400">{"100K Legacy Records"}</span>
+                                <span className="font-mono text-sm text-zinc-400">{"Legacy Platform"}</span>
                             </div>
                             <div className="text-zinc-600 hidden md:block">{"➔"}</div>
                             <div className="px-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-center w-full md:w-auto">
-                                <span className="font-mono text-sm text-zinc-400">{"14.3M+ Manuscripts"}</span>
+                                <span className="font-mono text-sm text-zinc-400">{"Scalable Discovery Platform"}</span>
                             </div>
                             <div className="text-zinc-600 hidden md:block">{"➔"}</div>
                             <div className="px-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-center w-full md:w-auto">
-                                <span className="font-mono text-sm text-zinc-400">{"60+ Institutions"}</span>
+                                <span className="font-mono text-sm text-zinc-400">
+                                    <span className="font-sans font-normal">{"60+"}</span>
+                                    {" Connected Institutions"}
+                                </span>
                             </div>
                             <div className="text-zinc-600 hidden md:block">{"➔"}</div>
                             <div className="px-4 py-2.5 bg-emerald-950/20 border border-emerald-500/20 rounded-lg text-center w-full md:w-auto shadow-[0_0_15px_rgba(16,185,129,0.05)]">
-                                <span className="font-mono text-sm text-emerald-400 font-bold">{"National Digital Heritage Platform"}</span>
+                                <span className="font-mono text-sm text-emerald-400 font-bold">
+                                    <span className="font-sans font-bold text-emerald-400">{"14.3M+"}</span>
+                                    {" Searchable Manuscripts"}
+                                </span>
                             </div>
                         </div>
                     </div>
