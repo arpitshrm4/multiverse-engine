@@ -313,7 +313,7 @@ export default function UniverseCPage() {
                     {/* Timeline Infographic */}
                     <div className="relative pl-8 space-y-8 border-l border-emerald-500/20 max-w-4xl">
                         <div className="relative space-y-2">
-                            <span className="absolute -left-[37px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
+                            <span className="absolute -left-10 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
                             <span className="text-sm font-mono text-zinc-500 uppercase">
@@ -326,7 +326,7 @@ export default function UniverseCPage() {
                         </div>
 
                         <div className="relative space-y-2">
-                            <span className="absolute -left-[37px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
+                            <span className="absolute -left-10 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
                             <span className="text-sm font-mono text-zinc-500 uppercase">
@@ -339,18 +339,18 @@ export default function UniverseCPage() {
                         </div>
 
                         <div className="relative space-y-2">
-                            <span className="absolute -left-[37px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-400">
+                            <span className="absolute -left-10 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-400">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
                             <span className="text-sm font-mono text-emerald-400 uppercase font-bold">{"Decision Point"}</span>
                             <h4 className="text-sm font-bold text-white">{"The Realisation"}</h4>
                             <p className="text-sm text-zinc-200 max-w-2xl italic font-sans">
-                                {"\"We realised the problem wasn't search—it was what search could understand. Improving discoverability required rethinking metadata before redesigning the search experience.\""}
+                                {"\"We realised the problem wasn't search it was what search could understand. Improving discoverability required rethinking metadata before redesigning the search experience.\""}
                             </p>
                         </div>
 
                         <div className="relative space-y-2">
-                            <span className="absolute -left-[37px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
+                            <span className="absolute -left-10 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
                             <span className="text-sm font-mono text-zinc-500 uppercase">{"Transformation"}</span>
@@ -768,11 +768,11 @@ export default function UniverseCPage() {
 
                     <div className="space-y-8 mt-6">
                         <p className="text-xl md:text-2xl text-zinc-200 font-sans italic leading-relaxed text-center">
-                            {"\"I entered this project expecting to solve interface problems. Instead, I learned that the hardest design challenges were organizational—aligning policy, engineering, domain experts, and user needs into one coherent product strategy.\""}
+                            {"\"I entered this project expecting to solve interface problems. Instead, I learned that the hardest design challenges were organizational aligning policy, engineering, domain experts, and user needs into one coherent product strategy.\""}
                         </p>
                         <div className="w-12 h-px bg-emerald-500/50 mx-auto" />
                         <p className="text-sm md:text-base text-zinc-400 leading-relaxed text-center">
-                            {"Gyan Bharatam fundamentally changed how I think about product strategy, design leadership, and designing for national scale. It proved that a design leader's primary tool is alignment—unlocking complex cross-functional pathways to create lasting preservation platforms."}
+                            {"Gyan Bharatam fundamentally changed how I think about product strategy, design leadership, and designing for national scale. It proved that a design leader's primary tool is alignment unlocking complex cross-functional pathways to create lasting preservation platforms."}
                         </p>
                     </div>
                 </section>
