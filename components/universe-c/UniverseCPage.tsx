@@ -17,14 +17,14 @@ import {
 // List of the 9 consolidated chapters with the new story order
 const chaptersList = [
     { id: "overview", label: "01. Executive Overview", icon: ShieldAlert },
-    { id: "mission", label: "02. The Mission", icon: BookOpen },
-    { id: "tp-1", label: "03. Browsing Was No Longer Enough", icon: GitBranch },
-    { id: "tp-2", label: "04. We Designed for Future Scale", icon: Layers },
-    { id: "tp-3", label: "05. We Chose Not to Build Everything", icon: Settings },
-    { id: "tp-4", label: "06. We Prioritized Discovery Before Contribution", icon: Compass },
-    { id: "tp-5", label: "07. Aligning People Over Designing Screens", icon: Activity },
+    { id: "mission", label: "02. The Product Challenge", icon: BookOpen },
+    { id: "tp-1", label: "03. Turning Point 01", icon: GitBranch },
+    { id: "tp-2", label: "04. Turning Point 02", icon: Layers },
+    { id: "tp-3", label: "05. Turning Point 03", icon: Settings },
+    { id: "tp-4", label: "06. Turning Point 04", icon: Compass },
+    { id: "tp-5", label: "07. Turning Point 05", icon: Activity },
     { id: "outcomes", label: "08. Outcomes", icon: CheckCircle },
-    { id: "reflection", label: "09. Reflection & Ending", icon: MessageSquare },
+    { id: "reflection", label: "09. Reflection", icon: MessageSquare },
 ];
 
 export default function UniverseCPage() {
