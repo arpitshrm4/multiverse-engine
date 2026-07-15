@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
-import { 
-    BookOpen, 
-    ShieldAlert, 
-    GitBranch, 
-    Layers, 
-    Settings, 
-    Compass, 
-    Activity, 
-    CheckCircle, 
+import React, { useState, useEffect } from "react";
+import {
+    BookOpen,
+    ShieldAlert,
+    GitBranch,
+    Layers,
+    Settings,
+    Compass,
+    Activity,
+    CheckCircle,
     MessageSquare,
     ChevronDown
 } from "lucide-react";
@@ -38,11 +38,41 @@ export default function UniverseCPage() {
         }
     };
 
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: "-30% 0px -30% 0px", // focus on the viewport center area
+            threshold: 0.05,
+        };
+
+        const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+        chaptersList.forEach((chap) => {
+            const el = document.getElementById(chap.id);
+            if (el) observer.observe(el);
+        });
+
+        return () => {
+            chaptersList.forEach((chap) => {
+                const el = document.getElementById(chap.id);
+                if (el) observer.unobserve(el);
+            });
+        };
+    }, []);
+
     console.log("Rendering UniverseCPage!");
 
     return (
         <div className="min-h-screen bg-[#070708] text-[#e4e4e7] flex font-sans selection:bg-emerald-500/20 selection:text-emerald-400">
-            
+
             {/* Left Sidebar - Navigation */}
             <aside className="hidden lg:flex flex-col w-80 h-screen sticky top-0 bg-[#0c0c0e] border-r border-[#1f1f23] p-6 justify-between shrink-0 overflow-y-auto">
                 <div className="space-y-6">
@@ -87,17 +117,17 @@ export default function UniverseCPage() {
 
                 {/* Chapter 1: The Executive Overview - HIGH-IMPACT HERO */}
                 <section id="overview" className="scroll-mt-16 space-y-16 min-h-[90vh] flex flex-col justify-center border-b border-[#1f1f23] pb-24">
-                    
+
                     {/* Eyebrow & Title */}
                     <div className="space-y-6">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.3em] block">
                             {"CASE STUDY // Government Digital Transformation"}
                         </span>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-tight font-light tracking-tight">
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-white leading-tight font-light tracking-tight">
                             {"Scaling India's Manuscript Discovery from "}
-                            <span className="font-sans font-normal">{"100K"}</span>
+                            <span className="font-sans text-5xl font-semibold">{"100K"}</span>
                             {" Legacy Records to "}
-                            <span className="font-sans font-normal">{"14.3M+"}</span>
+                            <span className="font-sans text-5xl font-semibold">{"14.3M+"}</span>
                             {" Manuscript Records"}
                         </h1>
                     </div>
@@ -202,7 +232,7 @@ export default function UniverseCPage() {
 
                     {/* Scroll Indicator */}
                     <div className="flex justify-center pt-8">
-                        <button 
+                        <button
                             onClick={() => scrollToSection("mission")}
                             className="flex flex-col items-center gap-2 text-zinc-500 hover:text-emerald-400 transition-colors text-sm font-mono"
                         >
