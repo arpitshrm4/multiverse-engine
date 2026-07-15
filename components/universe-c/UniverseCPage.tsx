@@ -123,7 +123,7 @@ export default function UniverseCPage() {
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.3em] block">
                             {"CASE STUDY // Government Digital Transformation"}
                         </span>
-                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-sans text-white leading-relaxed font-light tracking-tight">
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-sans text-white leading-[3rem] lg:leading-[4.5rem] font-light tracking-tight">
                             {"Designing a Discovery Platform That Scaled "}
                             <span className="font-sans text-6xl font-semibold">{"100K"}</span>
                             {" Legacy Records to "}
