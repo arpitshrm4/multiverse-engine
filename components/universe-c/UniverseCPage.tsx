@@ -707,20 +707,24 @@ export default function UniverseCPage() {
                         {/* Product Outcomes */}
                         <div className="bg-[#0c0c0e] border border-[#1f1f23] p-6 rounded-xl space-y-4">
                             <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">
-                                {"Product Evolution"}
+                                {"PRODUCT OUTCOMES"}
                             </span>
-                            <ul className="text-sm text-zinc-400 space-y-2">
+                            <ul className="text-sm text-zinc-400 space-y-3">
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Fast discoverability via unified search."}</span>
+                                    <span>{"Search became the primary path for manuscript discovery."}</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Consistent layout rules matching accessibility."}</span>
+                                    <span>{"Metadata standardisation enabled more consistent search results across institutions."}</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Simplified terminology for non-expert users."}</span>
+                                    <span>{"Simplified terminology and information hierarchy improved accessibility for researchers and general users."}</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-emerald-400 mt-0.5">{"✓"}</span>
+                                    <span>{"Discovery remained the primary experience while preserving a clear contribution journey."}</span>
                                 </li>
                             </ul>
                         </div>
@@ -728,20 +732,28 @@ export default function UniverseCPage() {
                         {/* Platform Stats */}
                         <div className="bg-[#0c0c0e] border border-[#1f1f23] p-6 rounded-xl space-y-4">
                             <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">
-                                {"Platform Impact"}
+                                {"PLATFORM IMPACT"}
                             </span>
                             <div className="space-y-3">
                                 <div>
                                     <span className="text-2xl font-sans text-white block">{"14.3M+"}</span>
-                                    <span className="text-sm text-zinc-500 font-mono">{"Manuscripts cataloged"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono">{"Manuscripts"}</span>
                                 </div>
                                 <div>
                                     <span className="text-2xl font-sans text-white block">{"11.6M+"}</span>
-                                    <span className="text-sm text-zinc-500 font-mono">{"Preservation requests"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono">{"Digitisation Requests"}</span>
                                 </div>
                                 <div>
                                     <span className="text-2xl font-sans text-white block">{"60+"}</span>
-                                    <span className="text-sm text-zinc-500 font-mono">{"Institutions"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono">{"Participating Institutions"}</span>
+                                </div>
+                                <div>
+                                    <span className="text-2xl font-sans text-white block">{"10K+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono">{"Platform Users"}</span>
+                                </div>
+                                <div>
+                                    <span className="text-2xl font-sans text-white block">{"10K+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono">{"Android App Downloads"}</span>
                                 </div>
                             </div>
                         </div>
@@ -749,20 +761,24 @@ export default function UniverseCPage() {
                         {/* Leadership Metrics */}
                         <div className="bg-[#0c0c0e] border border-[#1f1f23] p-6 rounded-xl space-y-4">
                             <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">
-                                {"Leadership Outcomes"}
+                                {"LEADERSHIP OUTCOMES"}
                             </span>
-                            <ul className="text-sm text-zinc-400 space-y-2">
+                            <ul className="text-sm text-zinc-400 space-y-3">
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Cross-functional alignment across ministries."}</span>
+                                    <span>{"Aligned stakeholders across evolving product requirements."}</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Sustained sprint velocity through transitions."}</span>
+                                    <span>{"Led a multidisciplinary design team through an ambiguous first-of-its-kind government initiative."}</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Pragmatic design governance model."}</span>
+                                    <span>{"Balanced delivery speed with long-term scalability through deliberate product prioritisation."}</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-emerald-400 mt-0.5">{"✓"}</span>
+                                    <span>{"Established reusable design foundations that enabled consistent product development."}</span>
                                 </li>
                             </ul>
                         </div>
