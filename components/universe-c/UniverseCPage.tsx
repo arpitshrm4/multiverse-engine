@@ -566,30 +566,30 @@ export default function UniverseCPage() {
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-4xl">
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-2">
                             <span className="text-sm font-mono text-zinc-500 uppercase">{"01 / Stakeholder Goal"}</span>
-                            <h5 className="text-sm font-bold text-white">{"\"FAB Upload\""}</h5>
+                            <h5 className="text-sm font-bold text-white">{"Always-Visible Upload Button"}</h5>
                             <p className="text-sm text-zinc-400">
-                                {"Stakeholders requested a prominent \"Upload\" FAB on the homepage to boost manuscript ingestion rates."}
+                                {"Stakeholders wanted a prominent “Request for Digitisation” action on the homepage so users could immediately contribute manuscript information."}
                             </p>
                         </div>
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-2">
                             <span className="text-sm font-mono text-zinc-500 uppercase">{"02 / User Goal"}</span>
-                            <h5 className="text-sm font-bold text-white">{"Find verified records"}</h5>
+                            <h5 className="text-sm font-bold text-white">{"Discover Before They Contribute"}</h5>
                             <p className="text-sm text-zinc-400">
-                                {"Users visited the homepage to search and discover existing copies before making digitisation requests."}
+                                {"For most users, the first task was exploring the collection—not submitting a request. They needed confidence that a manuscript wasn't already available before taking any action."}
                             </p>
                         </div>
                         <div className="border border-red-500/20 bg-red-950/10 p-6 rounded-xl space-y-2">
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"03 / The Conflict"}</span>
-                            <h5 className="text-sm font-bold text-red-400">{"Ingest duplicates"}</h5>
+                            <span className="text-sm font-mono text-zinc-500 uppercase">{"03 / The Product Tension"}</span>
+                            <h5 className="text-sm font-bold text-red-400">{"Competing Priorities"}</h5>
                             <p className="text-sm text-zinc-400">
-                                {"Prominent upload buttons encouraged duplicate entries of manuscripts before checking the database index."}
+                                {"A persistent homepage CTA encouraged contribution before discovery. This risked distracting users from the platform's primary purpose and increased the likelihood of duplicate digitisation requests."}
                             </p>
                         </div>
                         <div className="border border-emerald-500/20 bg-emerald-950/10 p-6 rounded-xl space-y-2">
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"04 / The Compromise"}</span>
-                            <h5 className="text-sm font-bold text-emerald-400">{"Contextual banner"}</h5>
+                            <span className="text-sm font-mono text-zinc-500 uppercase">{"04 / The Resolution"}</span>
+                            <h5 className="text-sm font-bold text-emerald-400">{"Context Instead of Constant Visibility"}</h5>
                             <p className="text-sm text-zinc-400">
-                                {"We did not ship the FAB. Uploads are contextual, appearing only when a search returns empty results."}
+                                {"Instead of a floating action button, we introduced a contextual \"Request for Digitisation\" banner. Users were encouraged to contribute only after exploring the collection and determining that a manuscript was not already available."}
                             </p>
                         </div>
                     </div>
@@ -600,13 +600,13 @@ export default function UniverseCPage() {
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"The Challenge"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"Allowing easy uploads directly from the homepage led to duplicate entries, as users uploaded manuscripts that were already cataloged. Gating contribution behind queries clashed with adoption metric targets."}
+                                    {"The homepage needed to serve a broad audience—from researchers and students to citizens discovering manuscripts for the first time. Making contribution the most prominent action conflicted with the platform's primary objective: helping users discover existing knowledge before requesting digitisation."}
                                 </p>
                             </div>
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"The Decision"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"We chose not to ship the homepage upload button, routing contribution flows exclusively through empty search result states. This added friction to the contribution path but protected catalog cleanliness."}
+                                    {"We recommended removing the persistent homepage FAB and replacing it with a contextual call to action. This balanced stakeholder goals with user needs, keeping discovery as the primary experience while still providing a clear path for manuscript requests."}
                                 </p>
                             </div>
                         </div>
@@ -614,13 +614,13 @@ export default function UniverseCPage() {
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution & Outcome"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"Implemented contextual contribution triggers that only appear when a search query returns no results, keeping the database catalog clean."}
+                                    {"The homepage was redesigned to emphasise search and discovery. A dedicated banner introduced the digitisation request flow without interrupting exploration, resulting in a cleaner experience that better aligned with the platform's purpose."}
                                 </p>
                             </div>
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Reflection"}</span>
                                 <p className="text-sm text-zinc-200 italic font-sans">
-                                    {"\"Design leadership is about defending system value. Choosing where to introduce friction is vital to protect the accuracy of catalog indexes.\""}
+                                    {"\"This decision reinforced an important lesson for me: every prominent action on a screen shapes user behaviour. Good product leadership isn't about making every feature more visible—it's about making the right behaviour feel natural.\""}
                                 </p>
                             </div>
                         </div>
