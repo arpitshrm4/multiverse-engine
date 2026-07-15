@@ -6,16 +6,7 @@ import Navbar from "@/components/universe-a/Navbar";
 import Footer from "@/components/universe-a/Footer";
 import DimensionIndicator from "@/components/universe-a/DimensionIndicator";
 import { ArrowRight } from "lucide-react";
-
-const imgRectangle = "http://localhost:3845/assets/a0a5fbb16e644e91e0deb73ef4c7ac3b95b3236b.png";
-const imgRectangle1 = "http://localhost:3845/assets/86e59151b805c3fd0148c6d0a2e4e747ac9df503.png";
-const imgRectangle2 = "http://localhost:3845/assets/63006ce18702f8de7ce286259d493f2d8525dccb.png";
-const imgRectangle3 = "http://localhost:3845/assets/2ee687ffa4bdd59a2693815cd9addbbf487b6c07.png";
-const imgRectangle4 = "http://localhost:3845/assets/bc84dab90e08b6893fa2ed6a086e9e6baa638305.png";
-const imgRectangle5 = "http://localhost:3845/assets/a3f456165039221d3da530cb52e683b3975c6a28.png";
-const imgRectangle6 = "http://localhost:3845/assets/6d4d45d1bec6bdc3f3186ff934c9efbc40962867.png";
-const imgRectangle7 = "http://localhost:3845/assets/e834688b7d21c861cda66b22edd3675a3920c4e4.png";
-const imgRectangle8 = "http://localhost:3845/assets/8bb4d46325688500ca4935319241dbeca79c7659.png";
+import AbstractShapeImage from "./AbstractShapeImage";
 
 const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -69,7 +60,7 @@ export default function UniverseAPage({ onReturnToLobby }: { onReturnToLobby?: (
                                 </p>
                             </div>
                             <div className="h-[300px] md:h-[500px] w-full max-w-[952px] relative rounded-[4px] overflow-hidden bg-zinc-900/50">
-                                <img alt="Journal Spotlight" className="absolute inset-0 object-cover w-full h-full" src={imgRectangle} />
+                                <AbstractShapeImage section="hero" className="absolute inset-0" />
                             </div>
                         </div>
                     </div>
@@ -123,7 +114,7 @@ export default function UniverseAPage({ onReturnToLobby }: { onReturnToLobby?: (
                             </div>
                             <div className="flex-1 w-full relative">
                                 <div className="h-[400px] md:h-[600px] w-full rounded-[2px] overflow-hidden bg-zinc-900/50">
-                                    <img alt="Where I come from" className="object-cover w-full h-full" src={imgRectangle1} />
+                                    <AbstractShapeImage section="01" />
                                 </div>
                             </div>
                         </div>
@@ -157,7 +148,7 @@ export default function UniverseAPage({ onReturnToLobby }: { onReturnToLobby?: (
                         </div>
                         <div className="flex flex-col md:flex-row gap-[32px] items-center w-full">
                             <div className="h-[300px] md:h-[400px] rounded-[4px] overflow-hidden w-full md:w-[515px] shrink-0 bg-zinc-900/50">
-                                <img alt="Growing up" className="object-cover w-full h-full" src={imgRectangle2} />
+                                <AbstractShapeImage section="02" />
                             </div>
                             <div className="flex-1 flex flex-col font-sans font-normal gap-[32px] items-start w-full">
                                 <div className="space-y-4">
@@ -222,7 +213,7 @@ export default function UniverseAPage({ onReturnToLobby }: { onReturnToLobby?: (
                             </div>
                             <div className="flex-1 flex flex-col gap-[48px] items-start w-full">
                                 <div className="h-[300px] md:h-[600px] rounded-[4px] overflow-hidden w-full bg-zinc-900/50">
-                                    <img alt="Phone in Rain" className="object-cover w-full h-full" src={imgRectangle3} />
+                                    <AbstractShapeImage section="03" />
                                 </div>
                                 <div className="font-sans font-normal gap-[32px] flex flex-col items-start leading-[1.8] w-full">
                                     <div className="space-y-4">
@@ -271,7 +262,7 @@ export default function UniverseAPage({ onReturnToLobby }: { onReturnToLobby?: (
                         </div>
                         <div className="flex flex-col md:flex-row gap-[32px] items-center w-full">
                             <div className="h-[300px] md:h-[400px] rounded-[4px] overflow-hidden w-full md:w-[515px] shrink-0 bg-zinc-900/50">
-                                <img alt="Retro Computer" className="object-cover w-full h-full" src={imgRectangle4} />
+                                <AbstractShapeImage section="04" />
                             </div>
                             <div className="flex-1 flex flex-col font-sans font-normal gap-[32px] items-start w-full">
                                 <div className="space-y-4">
@@ -337,7 +328,7 @@ export default function UniverseAPage({ onReturnToLobby }: { onReturnToLobby?: (
                             </div>
                             <div className="flex-1 flex flex-col gap-[48px] items-start w-full">
                                 <div className="h-[300px] md:h-[600px] rounded-[4px] overflow-hidden w-full bg-zinc-900/50">
-                                    <img alt="Desk workspace" className="object-cover w-full h-full" src={imgRectangle5} />
+                                    <AbstractShapeImage section="05" />
                                 </div>
                                 <div className="font-sans font-normal gap-[32px] flex flex-col items-start leading-[1.8] w-full">
                                     <div className="space-y-4">
@@ -389,7 +380,7 @@ export default function UniverseAPage({ onReturnToLobby }: { onReturnToLobby?: (
                         </div>
                         <div className="flex flex-col md:flex-row gap-[32px] items-center w-full">
                             <div className="h-[300px] md:h-[400px] rounded-[4px] overflow-hidden w-full md:w-[515px] shrink-0 bg-zinc-900/50">
-                                <img alt="Sunset road" className="object-cover w-full h-full" src={imgRectangle6} />
+                                <AbstractShapeImage section="06" />
                             </div>
                             <div className="flex-1 flex flex-col items-start w-full">
                                 <ul className="font-sans font-normal leading-[1.8] text-[#eaeaea] text-[20px] w-full space-y-4 list-none pl-0">
@@ -464,7 +455,7 @@ export default function UniverseAPage({ onReturnToLobby }: { onReturnToLobby?: (
                             </div>
                             <div className="flex-1 flex flex-col gap-[48px] items-start w-full">
                                 <div className="h-[300px] md:h-[600px] rounded-[4px] overflow-hidden w-full bg-zinc-900/50">
-                                    <img alt="Bench mountains" className="object-cover w-full h-full" src={imgRectangle7} />
+                                    <AbstractShapeImage section="07" />
                                 </div>
                                 <div className="font-sans font-normal gap-[32px] flex flex-col items-start leading-[1.8] w-full">
                                     <div className="space-y-4">
@@ -524,7 +515,7 @@ export default function UniverseAPage({ onReturnToLobby }: { onReturnToLobby?: (
                             </div>
                             <div className="flex-1 flex flex-col gap-[48px] items-start w-full">
                                 <div className="h-[300px] md:h-[600px] rounded-[4px] overflow-hidden w-full bg-zinc-900/50">
-                                    <img alt="Desk artifacts" className="object-cover w-full h-full" src={imgRectangle8} />
+                                    <AbstractShapeImage section="08" />
                                 </div>
                             </div>
                         </div>

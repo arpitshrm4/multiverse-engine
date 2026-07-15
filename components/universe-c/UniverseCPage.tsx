@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     BookOpen,
     ShieldAlert,
@@ -17,14 +17,14 @@ import {
 // List of the 9 consolidated chapters with the new story order
 const chaptersList = [
     { id: "overview", label: "01. Executive Overview", icon: ShieldAlert },
-    { id: "mission", label: "02. The Mission", icon: BookOpen },
-    { id: "tp-1", label: "03. Browsing Was Never Going to Scale", icon: GitBranch },
-    { id: "tp-2", label: "04. Designing for an Unknown Future", icon: Layers },
-    { id: "tp-3", label: "05. Why We Deliberately Didn't Build a DS", icon: Settings },
-    { id: "tp-4", label: "06. The Button We Chose Not to Ship", icon: Compass },
-    { id: "tp-5", label: "07. Leading Without a Playbook", icon: Activity },
+    { id: "mission", label: "02. The Product Challenge", icon: BookOpen },
+    { id: "tp-1", label: "03. Turning Point 01", icon: GitBranch },
+    { id: "tp-2", label: "04. Turning Point 02", icon: Layers },
+    { id: "tp-3", label: "05. Turning Point 03", icon: Settings },
+    { id: "tp-4", label: "06. Turning Point 04", icon: Compass },
+    { id: "tp-5", label: "07. Turning Point 05", icon: Activity },
     { id: "outcomes", label: "08. Outcomes", icon: CheckCircle },
-    { id: "reflection", label: "09. Reflection & Ending", icon: MessageSquare },
+    { id: "reflection", label: "09. Reflection", icon: MessageSquare },
 ];
 
 export default function UniverseCPage() {
@@ -37,6 +37,36 @@ export default function UniverseCPage() {
             element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     };
+
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: "-30% 0px -30% 0px", // focus on the viewport center area
+            threshold: 0.05,
+        };
+
+        const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+        chaptersList.forEach((chap) => {
+            const el = document.getElementById(chap.id);
+            if (el) observer.observe(el);
+        });
+
+        return () => {
+            chaptersList.forEach((chap) => {
+                const el = document.getElementById(chap.id);
+                if (el) observer.unobserve(el);
+            });
+        };
+    }, []);
 
     console.log("Rendering UniverseCPage!");
 
@@ -76,7 +106,7 @@ export default function UniverseCPage() {
                     </nav>
                 </div>
                 <div className="pt-6 border-t border-[#1f1f23]">
-                    <span className="text-sm font-mono text-zinc-500 uppercase tracking-widest block">
+                    <span className="text-sm font-mono text-zinc-400 uppercase tracking-widest block">
                         Story Mode v1.0
                     </span>
                 </div>
@@ -91,49 +121,69 @@ export default function UniverseCPage() {
                     {/* Eyebrow & Title */}
                     <div className="space-y-6">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.3em] block">
-                            {"CASE STUDY // Government Digital Transformation"}
+                            {"CASE STUDY • Government Digital Transformation"}
                         </span>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-tight font-light tracking-tight">
-                            {"Scaling India's Manuscript Discovery from "}
-                            <span className="font-sans font-normal">{"100K"}</span>
+                        <h1 className="text-3xl md:text-5xl lg:text-6xl font-sans text-white leading-[3rem] lg:leading-[4.5rem] font-light tracking-tight">
+                            {"Designing a Discovery Platform That Scaled "}
+                            <span className="font-sans text-6xl font-semibold">{"100K"}</span>
                             {" Legacy Records to "}
-                            <span className="font-sans font-normal">{"14.3M+"}</span>
-                            {" Manuscript Records"}
+                            <span className="font-sans text-6xl font-semibold">{"14.3M+"}</span>
+                            {" Manuscripts"}
                         </h1>
                     </div>
 
                     {/* Transformation Statement */}
                     <div className="max-w-3xl">
-                        <p className="text-lg md:text-xl text-zinc-300 leading-relaxed font-light">
-                            {"Led product strategy, UX direction, stakeholder alignment, and design execution to transform a fragmented manuscript ecosystem into a scalable platform for discovery, digitization, and institutional collaboration."}
+                        <p className="text-lg md:text-xl text-zinc-300 leading-relaxed font-light font-sans">
+                            {"Contributed to product strategy and led UX direction for Gyan Bharatam, helping transform a fragmented manuscript ecosystem into a scalable national platform for discovery, digitisation, and institutional collaboration. Guided a multidisciplinary design team, aligned stakeholders across government and engineering, and delivered experiences designed to support long-term growth."}
                         </p>
                     </div>
 
                     {/* Platform Scale Metrics */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-8 py-8 border-t border-b border-[#1f1f23] border-dashed">
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"14.3M+"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Digital Manuscripts"}</span>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-8 border-t border-b border-[#1f1f23] border-dashed">
+                        {/* Platform stats */}
+                        <div className="space-y-8">
+                            <span className="text-xs font-mono uppercase text-emerald-400 tracking-wider block">{"Platform"}</span>
+                            <div className="space-y-6">
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"14.3M+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Manuscripts"}</span>
+                                </div>
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"11.6M+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Digitisation Requests"}</span>
+                                </div>
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"60+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Institutions"}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"11.6M+"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Digitisation Requests"}</span>
+
+                        {/* Adoption stats */}
+                        <div className="space-y-8">
+                            <span className="text-xs font-mono uppercase text-emerald-400 tracking-wider block">{"Adoption"}</span>
+                            <div className="space-y-6">
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"10K+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Users"}</span>
+                                </div>
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"10K+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"App Downloads"}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"60+"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Partner Institutions"}</span>
-                        </div>
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"10K+"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Platform Users"}</span>
-                        </div>
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"10K+"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Mobile Downloads"}</span>
-                        </div>
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"3"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Designers Led"}</span>
+
+                        {/* Leadership stats */}
+                        <div className="space-y-8">
+                            <span className="text-xs font-mono uppercase text-emerald-400 tracking-wider block">{"Leadership"}</span>
+                            <div className="space-y-6">
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"3"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Designers Led"}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -146,21 +196,21 @@ export default function UniverseCPage() {
                         <div className="md:col-span-2">
                             <span className="text-sm font-mono uppercase text-zinc-500 block">{"Ownership Scope"}</span>
                             <div className="grid grid-cols-2 gap-4 mt-2">
-                                <ul className="text-sm text-zinc-400 space-y-2 font-mono">
+                                <ul className="text-[15px] text-zinc-300 leading-relaxed space-y-2 font-mono">
                                     <li className="flex items-center gap-2">
                                         <span className="h-1 w-1 bg-emerald-400 rounded-full" />
-                                        <span>{"Product Strategy"}</span>
+                                        <span>{"Contributed to Product Strategy"}</span>
                                     </li>
                                     <li className="flex items-center gap-2">
                                         <span className="h-1 w-1 bg-emerald-400 rounded-full" />
-                                        <span>{"UX Direction"}</span>
+                                        <span>{"Led UX Direction"}</span>
                                     </li>
                                     <li className="flex items-center gap-2">
                                         <span className="h-1 w-1 bg-emerald-400 rounded-full" />
-                                        <span>{"Team Leadership"}</span>
+                                        <span>{"Led Team"}</span>
                                     </li>
                                 </ul>
-                                <ul className="text-sm text-zinc-400 space-y-2 font-mono">
+                                <ul className="text-[15px] text-zinc-300 leading-relaxed space-y-2 font-mono">
                                     <li className="flex items-center gap-2">
                                         <span className="h-1 w-1 bg-emerald-400 rounded-full" />
                                         <span>{"Stakeholder Alignment"}</span>
@@ -171,7 +221,7 @@ export default function UniverseCPage() {
                                     </li>
                                     <li className="flex items-center gap-2">
                                         <span className="h-1 w-1 bg-emerald-400 rounded-full" />
-                                        <span>{"Critical Design Execution"}</span>
+                                        <span>{"Design Delivery"}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -183,19 +233,25 @@ export default function UniverseCPage() {
                         <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"System Transformation Model"}</span>
                         <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-4">
                             <div className="px-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-center w-full md:w-auto">
-                                <span className="font-mono text-sm text-zinc-400">{"100K Legacy Records"}</span>
+                                <span className="font-mono text-[15px] text-zinc-300 leading-relaxed">{"Legacy Platform"}</span>
                             </div>
                             <div className="text-zinc-600 hidden md:block">{"➔"}</div>
                             <div className="px-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-center w-full md:w-auto">
-                                <span className="font-mono text-sm text-zinc-400">{"14.3M+ Manuscripts"}</span>
+                                <span className="font-mono text-[15px] text-zinc-300 leading-relaxed">{"Scalable Discovery Platform"}</span>
                             </div>
                             <div className="text-zinc-600 hidden md:block">{"➔"}</div>
                             <div className="px-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-lg text-center w-full md:w-auto">
-                                <span className="font-mono text-sm text-zinc-400">{"60+ Partner Institutions"}</span>
+                                <span className="font-mono text-[15px] text-zinc-300 leading-relaxed">
+                                    <span className="font-sans font-normal">{"60+"}</span>
+                                    {" Connected Institutions"}
+                                </span>
                             </div>
                             <div className="text-zinc-600 hidden md:block">{"➔"}</div>
                             <div className="px-4 py-2.5 bg-emerald-950/20 border border-emerald-500/20 rounded-lg text-center w-full md:w-auto shadow-[0_0_15px_rgba(16,185,129,0.05)]">
-                                <span className="font-mono text-sm text-emerald-400 font-bold">{"National Digital Heritage Platform"}</span>
+                                <span className="font-mono text-sm text-emerald-400 font-bold">
+                                    <span className="font-sans font-bold text-emerald-400">{"14.3M+"}</span>
+                                    {" Searchable Manuscripts"}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -206,7 +262,7 @@ export default function UniverseCPage() {
                             onClick={() => scrollToSection("mission")}
                             className="flex flex-col items-center gap-2 text-zinc-500 hover:text-emerald-400 transition-colors text-sm font-mono"
                         >
-                            <span>{"Read The Transformation Story"}</span>
+                            <span>{"How We Got Here"}</span>
                             <ChevronDown size={16} className="animate-bounce" />
                         </button>
                     </div>
@@ -217,503 +273,421 @@ export default function UniverseCPage() {
                 <section id="mission" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-24">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Chapter 02 // Cultural Preservation Context"}
+                            {"THE PRODUCT CHALLENGE"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
-                            {"Why India Needed a Unified Manuscript Network"}
+                            {"Why Digitisation Alone Wasn't Enough"}
                         </h2>
-                        <p className="text-zinc-400 leading-relaxed text-sm md:text-base">
-                            {"Centuries of scientific heritage, philosophies, and historical records are decaying. Gaining access was blocked by paper validation bottlenecks. Scholars waited months to request manual verifications of copies stored in separate libraries."}
+                        <p className="text-zinc-300 leading-relaxed text-base md:text-lg font-light">
+                            {"Preserving manuscripts was only the first step. The larger challenge was making millions of records discoverable across institutions with different cataloguing methods, metadata standards, and languages. Without a unified approach, valuable knowledge remained scattered, difficult to search, and inaccessible to researchers and the public."}
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8 mt-8">
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-3">
-                            <span className="text-sm font-mono text-emerald-400 uppercase">{"Why Manuscript Preservation?"}</span>
-                            <p className="text-sm text-zinc-400 leading-relaxed">
-                                {"Historical texts represent core intellectual assets. Physical deterioration and lack of high-fidelity backups meant centuries of records were at risk of vanishing permanently."}
+                            <span className="text-sm font-mono text-emerald-400 uppercase">{"The Preservation Challenge"}</span>
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
+                                {"Many manuscripts existed only as fragile physical documents. Even when digitised, they remained vulnerable if records were incomplete, inconsistent, or difficult to maintain. Long-term preservation required more than scanning it required structured, reliable digital records."}
                             </p>
                         </div>
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-3">
-                            <span className="text-sm font-mono text-emerald-400 uppercase">{"Why Ingestion Digitisation Wasn't Enough?"}</span>
-                            <p className="text-sm text-zinc-400 leading-relaxed">
-                                {"Digitisation created thousands of disconnected local PDFs, but no unified index metadata. Scholars couldn't search across libraries, leaving assets undiscovered."}
+                            <span className="text-sm font-mono text-emerald-400 uppercase">{"The Discovery Challenge"}</span>
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
+                                {"Collections were distributed across institutions using different metadata structures, naming conventions, and cataloguing practices. Finding a specific manuscript often required searching multiple systems, making discovery slow and inconsistent for both researchers and citizens."}
                             </p>
                         </div>
                     </div>
                 </section>
 
-                {/* Chapter 3: TP 01 - Browsing Was Never Going to Scale */}
+                {/* Chapter 3: TP 01 - Browsing Was No Longer Enough */}
                 <section id="tp-1" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-24">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Turning Point 01 // Search Foundations"}
+                            {"TURNING POINT 01"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
-                            {"Browsing Was Never Going to Scale"}
+                            {"Browsing Was No Longer Enough"}
                         </h2>
                     </div>
 
                     {/* Timeline Infographic */}
                     <div className="relative pl-8 space-y-8 border-l border-emerald-500/20 max-w-4xl">
                         <div className="relative space-y-2">
-                            <span className="absolute -left-[37px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
+                            <span className="absolute -left-10 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"100K Pilot"}</span>
-                            <h4 className="text-sm font-semibold text-white">{"Traditional Browse Tree"}</h4>
-                            <p className="text-sm text-zinc-400 max-w-2xl">
-                                {"The initial catalog pilot supported 100K items. Library partners categorized manuscript folders in a classic taxonomy tree. The browse hierarchy seemed clean and functional."}
+                            <span className="text-sm font-mono text-zinc-400 uppercase">
+                                {"Legacy Platform"}
+                            </span>
+                            <h4 className="text-base font-semibold text-white">{"Search Had Limited Context"}</h4>
+                            <p className="text-base text-zinc-300 leading-relaxed max-w-2xl font-light">
+                                {"The legacy platform supported basic keyword search, but discovery was constrained by inconsistent metadata and limited searchable fields. Users often struggled to find relevant manuscripts because the search experience depended on incomplete or differently structured catalog information."}
                             </p>
                         </div>
 
                         <div className="relative space-y-2">
-                            <span className="absolute -left-[37px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
+                            <span className="absolute -left-10 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"14.3M+ Ingestion Targets"}</span>
-                            <h4 className="text-sm font-semibold text-white">{"The Taxonomic Collapse"}</h4>
-                            <p className="text-sm text-zinc-400 max-w-2xl">
-                                {"As target scope increased to 14.3M+ items across 60+ institutions, browsing trees collapsed. Multiple scripts, dialect spelling variations, and catalog differences meant identical items were scattered under completely different subfolders."}
+                            <span className="text-sm font-mono text-zinc-400 uppercase">
+                                {"As the Platform Grew"}
+                            </span>
+                            <h4 className="text-base font-semibold text-white">{"Discovery Became Increasingly Complex"}</h4>
+                            <p className="text-base text-zinc-300 leading-relaxed max-w-2xl font-light">
+                                {"As the platform expanded to include manuscripts from multiple institutions, the challenge became more pronounced. Different metadata standards, languages, and cataloguing practices reduced search relevance, making it harder for users to consistently discover the manuscripts they were looking for."}
                             </p>
                         </div>
 
                         <div className="relative space-y-2">
-                            <span className="absolute -left-[37px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-400">
+                            <span className="absolute -left-10 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500/20 border border-emerald-400">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
                             <span className="text-sm font-mono text-emerald-400 uppercase font-bold">{"Decision Point"}</span>
-                            <h4 className="text-sm font-bold text-white">{"Browsing Was Never Going to Scale"}</h4>
+                            <h4 className="text-sm font-bold text-white">{"The Realisation"}</h4>
                             <p className="text-sm text-zinc-200 max-w-2xl italic font-sans">
-                                {"\"We realized something uncomfortable. Browsing would never survive a repository growing into millions of manuscripts. We had to abandon directory subfolders entirely.\""}
+                                {"\"We realised the problem wasn't search it was what search could understand. Improving discoverability required rethinking metadata before redesigning the search experience.\""}
                             </p>
                         </div>
 
                         <div className="relative space-y-2">
-                            <span className="absolute -left-[37px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
+                            <span className="absolute -left-10 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"The Transformation"}</span>
-                            <h4 className="text-sm font-semibold text-emerald-400">{"Semantic Indexed Search Wins"}</h4>
-                            <p className="text-sm text-zinc-400 max-w-2xl">
-                                {"Pivoted the interface architecture to a unified indexed search input, reducing manuscript lookups from 3.5 minutes to under 22 seconds."}
+                            <span className="text-sm font-mono text-zinc-400 uppercase">{"Transformation"}</span>
+                            <h4 className="text-sm font-semibold text-emerald-400">{"Better Metadata. Better Discovery."}</h4>
+                            <p className="text-base text-zinc-300 leading-relaxed max-w-2xl font-light">
+                                {"Rather than focusing only on the search interface, we prioritised improving how manuscript information was structured and presented. Standardising metadata, simplifying terminology, and redesigning the search experience together created a more reliable and discoverable platform."}
                             </p>
                         </div>
                     </div>
 
-                    {/* Storytelling Framework */}
+                    {/* Consolidated 4-part Storytelling Framework */}
                     <div className="space-y-6 max-w-4xl bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl">
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Challenge"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Inconsistent indexing dialects and library naming schemas made category-based folder browsing impossible to manage."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Challenge"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"Metadata from different institutions varied in structure, naming conventions, and completeness. Since the search engine relied on these fields, inconsistent metadata often resulted in less relevant search results and made manuscript discovery more difficult."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Options Considered"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Taxonomy folders vs. tag clusters vs. semantic indexed search. Command search wins."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Decision"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"We prioritised discoverability over adding more search features. Instead of expanding search capabilities, we focused on improving metadata quality, simplifying search interactions, and surfacing the most relevant information first."}
                                 </p>
                             </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Decision"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"I established search as the primary product strategy: removing the directory browse path entirely and mapping inputs to semantic tag translation engines."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"Execution & Outcome"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"The search experience was redesigned with clearer information hierarchy, simplified terminology, search suggestions, and metadata-driven improvements. These changes established a stronger foundation for discovering manuscripts across a growing collection of more than 14.3 million records."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Trade-offs"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Sacrificed general folder browsing pathways. Librarians had to standardise metadata attributes upfront to support indexing rules."}
+                                <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Reflection"}</span>
+                                <p className="text-sm text-zinc-200 italic font-sans">
+                                    {"\"This project changed how I think about search. A search experience is only as effective as the information behind it. Improving discoverability meant designing both the interface and the data that powered it.\""}
                                 </p>
                             </div>
-                        </div>
-                        <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
-                            <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Built smart search index translation libraries that mapped different scripts and names to unified tags."}
-                                </p>
-                            </div>
-                            <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Outcome"}</span>
-                                <p className="text-sm text-emerald-400 font-semibold">
-                                    {"Average lookup speed fell to 22 seconds, eliminating classification silos."}
-                                </p>
-                            </div>
-                        </div>
-                        <div className="pt-2">
-                            <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Leadership Reflection"}</span>
-                            <p className="text-sm text-zinc-200 italic font-sans">
-                                {"\"Search is not an interface component; it is the data retrieval model that dictates platform utility at scale. Standing firm on search over browse protected the catalog from metadata fragmentation.\""}
-                            </p>
                         </div>
                     </div>
                 </section>
 
-                {/* Chapter 4: TP 02 - We Designed for a Future That Didn't Exist Yet */}
+                {/* Chapter 4: TP 02 - We Designed for Future Scale */}
                 <section id="tp-2" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-20">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Turning Point 02 // Information Architecture Scale"}
+                            {"TURNING POINT 02"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
-                            {"We Designed for a Future That Didn't Exist Yet"}
+                            {"We Designed for Future Scale"}
                         </h2>
                     </div>
 
                     {/* Ecosystem Schema Mapping */}
                     <div className="bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl space-y-6 max-w-4xl">
-                        <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"Ingestion & Indexing Data Pipeline"}</span>
+                        <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"Bringing 60+ Institutions into One Search Experience"}</span>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-                            <div className="border border-zinc-800 bg-zinc-900/50 p-4 rounded-lg space-y-2">
-                                <span className="text-sm font-mono text-zinc-500 uppercase tracking-wider">{"60+ Regional Library Networks"}</span>
+                            <div className="border border-zinc-800 bg-zinc-900/50 p-4 rounded-lg space-y-3">
+                                <span className="text-sm font-mono text-zinc-400 uppercase tracking-wider block">
+                                    <span className="font-sans font-normal">{"60+"}</span>
+                                    {" Institutions"}
+                                </span>
                                 <div className="space-y-1">
-                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library A Catalog (Script 1)"}</div>
-                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library B Catalog (Script 2)"}</div>
-                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library C Catalog (Script 3)"}</div>
+                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library A"}</div>
+                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library B"}</div>
+                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library C"}</div>
+                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono text-zinc-500">{"..."}</div>
                                 </div>
+                                <p className="text-[15px] text-zinc-300 leading-relaxed leading-normal">
+                                    {"Each institution managed manuscripts using its own metadata structure, naming conventions, and cataloguing practices."}
+                                </p>
                             </div>
                             <div className="flex flex-col items-center justify-center">
                                 <span className="text-zinc-600 hidden md:block">{"➔"}</span>
-                                <span className="text-sm font-mono text-emerald-400 text-center py-1">{"Relational Translation Schema"}</span>
+                                <span className="text-sm font-mono text-emerald-400 text-center py-1">{"Common Metadata Framework"}</span>
                             </div>
-                            <div className="border border-emerald-500/20 bg-emerald-950/10 p-4 rounded-lg space-y-2">
-                                <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider">{"Unified Search Catalog (14.3M+)"}</span>
+                            <div className="border border-emerald-500/20 bg-emerald-950/10 p-4 rounded-lg space-y-3">
+                                <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block">{"One Search Across All Collections"}</span>
                                 <div className="space-y-1">
-                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-sm font-mono text-zinc-300">{"Standard Tag: 'Rigveda'"}</div>
-                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-sm font-mono text-zinc-300">{"Standard Tag: 'Ayurveda'"}</div>
+                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-sm font-mono text-zinc-300 font-bold">
+                                        <span className="font-sans">{"14.3M+"}</span>
+                                        {" Manuscripts"}
+                                    </div>
+                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-xs font-mono text-zinc-400">{"Consistent Search"}</div>
+                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-xs font-mono text-zinc-400">{"Standardised Metadata"}</div>
+                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-xs font-mono text-zinc-400">{"Reliable Discovery"}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Storytelling Framework */}
+                    {/* Consolidated 4-part Storytelling Framework */}
                     <div className="space-y-6 max-w-4xl bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl">
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Challenge"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Inconsistent script referencing and local metadata attributes across regional databases caused search filter failures as volume grew."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Challenge"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"Every participating institution described manuscripts differently. Variations in metadata, terminology, and cataloguing practices made it difficult to deliver consistent search results across a growing national collection. Without a shared structure, users would receive incomplete or inconsistent results depending on where the manuscript originated."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Options Considered"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Library-specific customizable profiles vs. unified relational mapping translation schema. Standard mapping chosen."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Decision"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"We established a common metadata framework that allowed institutions to preserve their local cataloguing practices while mapping essential fields into a consistent structure for discovery. This created a single search experience without requiring every institution to redesign its existing records."}
                                 </p>
                             </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Decision"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"I re-designed the metadata schema structure, forcing localized input variables to translate into standardized primary search tags at data ingestion."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"Execution & Outcome"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"The platform introduced a consistent metadata model for discovery, supported by improved validation, clearer field structures, and standardized search behaviour. This enabled users to search across more than 14.3 million manuscript records from over 60 participating institutions through a unified experience."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Trade-offs"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"We increased the catalog mapping setup friction during the library ingestion phase, but protected the system's runtime stability."}
+                                <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Reflection"}</span>
+                                <p className="text-sm text-zinc-200 italic font-sans">
+                                    {"\"Designing for scale taught me that consistency isn't about making every institution work the same way. It's about creating a shared language that allows different systems to work together while remaining simple for the people searching.\""}
                                 </p>
                             </div>
-                        </div>
-                        <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
-                            <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Created data validation checklists and data mapping screens to allow librarians to easily sync records to standardized tags."}
-                                </p>
-                            </div>
-                            <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Outcome"}</span>
-                                <p className="text-sm text-emerald-400 font-semibold">
-                                    {"Indexed 14.3M+ manuscript items without query latency, ensuring future database growth compatibility."}
-                                </p>
-                            </div>
-                        </div>
-                        <div className="pt-2">
-                            <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Leadership Reflection"}</span>
-                            <p className="text-sm text-zinc-200 italic font-sans">
-                                {"\"Designing for scale is database-first, not interface-first. Aligning information architecture parameters before building layouts is what protects product stability under extreme scale.\""}
-                            </p>
                         </div>
                     </div>
                 </section>
 
-                {/* Chapter 5: TP 03 - Why We Deliberately Didn't Build a Design System */}
+                {/* Chapter 5: TP 03 - We Chose Not to Build Everything */}
                 <section id="tp-3" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-20">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Turning Point 03 // UI System Prioritization"}
+                            {"TURNING POINT 03"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
-                            {"Why We Deliberately Didn't Build a Design System"}
+                            {"We Chose Not to Build Everything"}
                         </h2>
                     </div>
 
                     {/* Decision Matrix Table */}
                     <div className="border border-[#1f1f23] bg-[#0c0c0e] rounded-xl overflow-hidden max-w-4xl">
                         <div className="p-4 border-b border-[#1f1f23] bg-zinc-900/50">
-                            <span className="text-sm font-mono text-zinc-400 uppercase tracking-wider">{"Strategic Prioritization Matrix"}</span>
+                            <span className="text-sm font-mono text-zinc-400 uppercase tracking-wider">{"Strategic Prioritisation"}</span>
                         </div>
                         <table className="w-full text-left border-collapse">
                             <thead>
-                                <tr className="border-b border-[#1f1f23] text-zinc-500 font-mono text-sm uppercase">
-                                    <th className="p-4">{"Strategy Model"}</th>
-                                    <th className="p-4">{"Friction / Cost"}</th>
-                                    <th className="p-4">{"Delivery Speed"}</th>
-                                    <th className="p-4">{"Status"}</th>
+                                <tr className="border-b border-[#1f1f23] text-zinc-400 font-mono text-xs uppercase">
+                                    <th className="p-4">{"Option"}</th>
+                                    <th className="p-4">{"Investment"}</th>
+                                    <th className="p-4">{"Impact"}</th>
+                                    <th className="p-4">{"Decision"}</th>
                                 </tr>
                             </thead>
-                            <tbody className="text-sm divide-y divide-[#1f1f23] text-zinc-400">
+                            <tbody className="text-sm divide-y divide-[#1f1f23] text-zinc-300">
                                 <tr>
-                                    <td className="p-4 font-semibold text-white">{"Full custom component library (React/Figma)"}</td>
-                                    <td className="p-4">{"High (Consumes 40% of sprint resources)"}</td>
-                                    <td className="p-4 text-red-400">{"Slowed down by months"}</td>
-                                    <td className="p-4"><span className="px-2 py-0.5 bg-red-950/20 border border-red-500/20 text-red-400 rounded-full font-mono text-sm">{"DEFERRED"}</span></td>
+                                    <td className="p-4 font-semibold text-white">{"Full Design System"}</td>
+                                    <td className="p-4">{"High effort across design and engineering"}</td>
+                                    <td className="p-4 text-red-400">{"Would delay MVP delivery"}</td>
+                                    <td className="p-4"><span className="px-2 py-0.5 bg-red-950/20 border border-red-500/20 text-red-400 rounded-full font-mono text-[10px]">{"DEFERRED"}</span></td>
                                 </tr>
                                 <tr>
-                                    <td className="p-4 font-semibold text-emerald-400">{"Core Visual Tokens & Pattern rules"}</td>
-                                    <td className="p-4">{"Low (Minimal setup cost)"}</td>
-                                    <td className="p-4 text-emerald-400">{"Unlocked immediate sprints"}</td>
-                                    <td className="p-4"><span className="px-2 py-0.5 bg-emerald-950/20 border border-emerald-500/20 text-emerald-400 rounded-full font-mono text-sm">{"CHOSEN"}</span></td>
+                                    <td className="p-4 font-semibold text-emerald-400">{"Core Design Foundations"}</td>
+                                    <td className="p-4">{"Low effort with immediate usability benefits"}</td>
+                                    <td className="p-4 text-emerald-400">{"Enabled faster product delivery"}</td>
+                                    <td className="p-4"><span className="px-2 py-0.5 bg-emerald-950/20 border border-emerald-500/20 text-emerald-400 rounded-full font-mono text-[10px]">{"CHOSEN"}</span></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
-                    {/* Storytelling Framework */}
+                    {/* Consolidated 4-part Storytelling Framework */}
                     <div className="space-y-6 max-w-4xl bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl">
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Challenge"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Building a new platform from scratch. Teams wanted standard custom design systems components built out before workflow validation had occurred."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Challenge"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"As a first-of-its-kind product, many workflows, user journeys, and requirements were still evolving. Investing heavily in a comprehensive design system too early risked slowing delivery before we had validated the product itself."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Options Considered"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Delayed launch to build custom design systems vs. using basic core token constraints first. Token rules chosen."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Decision"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"We deliberately postponed building a full design system and instead established lightweight design foundations—shared typography, colours, spacing, components, and interaction patterns. This allowed the team to maintain consistency while adapting quickly as the product evolved."}
                                 </p>
                             </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Decision"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"I made the strategic decision to postpone the design system, prioritizing product validation over layout polish. We established a minimal color/spacing token set and checked styles manually."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"Execution & Outcome"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"The team worked from a shared set of reusable UI foundations rather than a fully documented design system. This reduced unnecessary design effort, improved collaboration between designers and frontend developers, and helped us focus on validating the product experience during the initial launch."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Trade-offs"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Accepted visual discrepancies in initial builds to free up 40% of design sprint resources for core flow layout validation."}
+                                <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Reflection"}</span>
+                                <p className="text-sm text-zinc-200 italic font-sans">
+                                    {"\"This decision changed how I think about design systems. A design system should help a product scale—it shouldn't slow down a product that is still discovering what it needs to become. We invested in consistency where it mattered most and allowed the system to mature alongside the product.\""}
                                 </p>
                             </div>
-                        </div>
-                        <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
-                            <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Set up basic spacing and layout visual tokens, conducting manual design checkouts to align styling values."}
-                                </p>
-                            </div>
-                            <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Outcome"}</span>
-                                <p className="text-sm text-emerald-400 font-semibold">
-                                    {"Launched the platform pilot three months early, collecting validation metrics and securing future funding."}
-                                </p>
-                            </div>
-                        </div>
-                        <div className="pt-2">
-                            <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Leadership Reflection"}</span>
-                            <p className="text-sm text-zinc-200 italic font-sans">
-                                {"\"Design leadership means balancing UI system maturity against product maturity. Design systems exist to scale patterns that work. Postponing it saved critical validation sprints.\""}
-                            </p>
                         </div>
                     </div>
                 </section>
 
-                {/* Chapter 6: TP 04 - The Button We Chose Not to Ship */}
+                {/* Chapter 6: TP 04 - We Prioritized Discovery Before Contribution */}
                 <section id="tp-4" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-20">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Turning Point 04 // Alignment & Data Quality"}
+                            {"TURNING POINT 04"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
-                            {"The Button We Chose Not to Ship"}
+                            {"We Prioritized Discovery Before Contribution"}
                         </h2>
                     </div>
 
                     {/* Dialogue-style Storyboard */}
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-4xl">
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-2">
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"01 / Stakeholder Goal"}</span>
-                            <h5 className="text-sm font-bold text-white">{"\"Contribute FAB\""}</h5>
-                            <p className="text-sm text-zinc-400">
-                                {"Stakeholders requested a prominent \"Upload\" FAB on the homepage to boost manuscript ingestion rates."}
+                            <span className="text-sm font-mono text-zinc-400 uppercase">{"01 / Stakeholder Goal"}</span>
+                            <h5 className="text-sm font-bold text-white">{"Always-Visible Upload Button"}</h5>
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
+                                {"Stakeholders wanted a prominent “Request for Digitisation” action on the homepage so users could immediately contribute manuscript information."}
                             </p>
                         </div>
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-2">
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"02 / User Goal"}</span>
-                            <h5 className="text-sm font-bold text-white">{"Find verified record"}</h5>
-                            <p className="text-sm text-zinc-400">
-                                {"Users visited the homepage to search and discover existing copies before making digitisation requests."}
+                            <span className="text-sm font-mono text-zinc-400 uppercase">{"02 / User Goal"}</span>
+                            <h5 className="text-sm font-bold text-white">{"Discover Before They Contribute"}</h5>
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
+                                {"For most users, the first task was exploring the collection—not submitting a request. They needed confidence that a manuscript wasn't already available before taking any action."}
                             </p>
                         </div>
                         <div className="border border-red-500/20 bg-red-950/10 p-6 rounded-xl space-y-2">
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"03 / The Conflict"}</span>
-                            <h5 className="text-sm font-bold text-red-400">{"Ingest duplicates"}</h5>
-                            <p className="text-sm text-zinc-400">
-                                {"Prominent upload buttons encouraged duplicate entries of manuscripts before checking the database index."}
+                            <span className="text-sm font-mono text-zinc-400 uppercase">{"03 / The Product Tension"}</span>
+                            <h5 className="text-sm font-bold text-red-400">{"Competing Priorities"}</h5>
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
+                                {"A persistent homepage CTA encouraged contribution before discovery. This risked distracting users from the platform's primary purpose and increased the likelihood of duplicate digitisation requests."}
                             </p>
                         </div>
                         <div className="border border-emerald-500/20 bg-emerald-950/10 p-6 rounded-xl space-y-2">
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"04 / The Compromise"}</span>
-                            <h5 className="text-sm font-bold text-emerald-400">{"Contexual banner"}</h5>
-                            <p className="text-sm text-zinc-400">
-                                {"We did not ship the FAB. Uploads are contextual, appearing only when a search returns empty results."}
+                            <span className="text-sm font-mono text-zinc-400 uppercase">{"04 / The Resolution"}</span>
+                            <h5 className="text-sm font-bold text-emerald-400">{"Context Instead of Constant Visibility"}</h5>
+                            <p className="text-[15px] text-zinc-300 leading-relaxed">
+                                {"Instead of a floating action button, we introduced a contextual \"Request for Digitisation\" banner. Users were encouraged to contribute only after exploring the collection and determining that a manuscript was not already available."}
                             </p>
                         </div>
                     </div>
 
-                    {/* Storytelling Framework */}
+                    {/* Consolidated 4-part Storytelling Framework */}
                     <div className="space-y-6 max-w-4xl bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl">
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Challenge"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Stakeholders pushed for homepage contribution buttons, but duplicate submissions threatened database data cleanliness."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Challenge"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"The homepage needed to serve a broad audience—from researchers and students to citizens discovering manuscripts for the first time. Making contribution the most prominent action conflicted with the platform's primary objective: helping users discover existing knowledge before requesting digitisation."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Options Considered"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Deploy the homepage upload button vs. gate contribution behind query empty states. Context gating chosen."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Decision"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"We recommended removing the persistent homepage FAB and replacing it with a contextual call to action. This balanced stakeholder goals with user needs, keeping discovery as the primary experience while still providing a clear path for manuscript requests."}
                                 </p>
                             </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Decision"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"I chose to remove the homepage FAB, aligning stakeholders by routing uploads to contextual empty search states."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"Execution & Outcome"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"The homepage was redesigned to emphasise search and discovery. A dedicated banner introduced the digitisation request flow without interrupting exploration, resulting in a cleaner experience that better aligned with the platform's purpose."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Trade-offs"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Increased action clicks for contributors, but protected the system catalog from duplicate index entries."}
+                                <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Reflection"}</span>
+                                <p className="text-sm text-zinc-200 italic font-sans">
+                                    {"\"This decision reinforced an important lesson for me: every prominent action on a screen shapes user behaviour. Good product leadership isn't about making every feature more visible—it's about making the right behaviour feel natural.\""}
                                 </p>
                             </div>
-                        </div>
-                        <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
-                            <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Created the \"Request for Digitisation\" banners inside search result blank views."}
-                                </p>
-                            </div>
-                            <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Outcome"}</span>
-                                <p className="text-sm text-emerald-400 font-semibold">
-                                    {"Duplicate manuscript registry submissions dropped by 47%, protecting database cleanliness."}
-                                </p>
-                            </div>
-                        </div>
-                        <div className="pt-2">
-                            <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Leadership Reflection"}</span>
-                            <p className="text-sm text-zinc-200 italic font-sans">
-                                {"\"Design leadership is about alignment. Defending index quality against vanity dashboard metric demands protected the long-term utility of the platform.\""}
-                            </p>
                         </div>
                     </div>
                 </section>
 
-                {/* Chapter 7: TP 05 - Leading Without a Playbook */}
+                {/* Chapter 7: TP 05 - Leadership Was About Aligning People More Than Designing Screens */}
                 <section id="tp-5" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-20">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Turning Point 05 // Managing Ambiguity"}
+                            {"TURNING POINT 05"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
-                            {"Leading Without a Playbook"}
+                            {"Leadership Was About Aligning People More Than Designing Screens"}
                         </h2>
                     </div>
 
                     {/* Workflow Diagram */}
                     <div className="border border-[#1f1f23] bg-[#0c0c0e] p-8 rounded-xl max-w-4xl space-y-4">
-                        <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"Dual-Track Sprint Shield Model"}</span>
+                        <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"How We Kept Delivery Moving"}</span>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="border border-zinc-800 bg-zinc-900/50 p-6 rounded-lg space-y-2">
-                                <span className="text-sm font-mono text-emerald-400 uppercase block">{"Track 1: Ambiguity Resolution"}</span>
-                                <p className="text-sm text-zinc-400">
-                                    {"One designer worked directly with policy experts to prototype upcoming layout guidelines, mapping future constraints."}
+                                <span className="text-sm font-mono text-emerald-400 uppercase block">{"Aligning Stakeholders"}</span>
+                                <h5 className="text-sm font-bold text-white font-sans">{"Resolving Ambiguity"}</h5>
+                                <p className="text-[15px] text-zinc-300 leading-relaxed">
+                                    {"I worked closely with stakeholders to clarify evolving requirements before they reached the broader design and development teams. Product decisions were discussed, validated, and refined before becoming implementation work."}
                                 </p>
                             </div>
                             <div className="border border-zinc-800 bg-zinc-900/50 p-6 rounded-lg space-y-2">
-                                <span className="text-sm font-mono text-emerald-400 uppercase block">{"Track 2: Development Sprints"}</span>
-                                <p className="text-sm text-zinc-400">
-                                    {"Two designers focused on stable interface blocks and development handoff specs to keep engineering active."}
+                                <span className="text-sm font-mono text-emerald-400 uppercase block">{"Keeping Delivery Stable"}</span>
+                                <h5 className="text-sm font-bold text-white font-sans">{"Protecting Delivery"}</h5>
+                                <p className="text-[15px] text-zinc-300 leading-relaxed">
+                                    {"While requirements continued to evolve, the remaining designers focused on stable UI components and developer handoffs. This allowed engineering to continue building without constantly reworking completed features."}
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Storytelling Framework */}
+                    {/* Consolidated 4-part Storytelling Framework */}
                     <div className="space-y-6 max-w-4xl bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl">
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Challenge"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Shifting guidelines mid-project stalled design loops and left engineering teams waiting for specifications."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Challenge"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"As a first-of-its-kind government platform, requirements frequently evolved through stakeholder discussions. Translating changing expectations directly into development would have created unnecessary rework and slowed delivery."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Options Considered"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Halt sprints vs. create dual-track sprint shields. Sprint shields chosen."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"The Decision"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"Instead of involving the entire team in every evolving discussion, I acted as the primary point of alignment with stakeholders. Once decisions were sufficiently clear, I communicated priorities, design direction, and implementation details to the wider design team, allowing delivery to continue with minimal disruption."}
                                 </p>
                             </div>
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Decision"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"I set up dual-track work cycles, shielding design sprints and code pipelines from shifting policy directions."}
+                                <span className="text-sm font-mono text-zinc-400 uppercase">{"Execution & Outcome"}</span>
+                                <p className="text-[15px] text-zinc-200 leading-relaxed">
+                                    {"Regular design reviews, collaborative discussions, and shared UI foundations helped the team maintain consistency while adapting to changing requirements. This approach enabled three designers and engineering to continue delivering without losing momentum during the initial launch."}
                                 </p>
                             </div>
                             <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Trade-offs"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Demanded constant align loops on design updates, but kept development timelines 100% active."}
+                                <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Reflection"}</span>
+                                <p className="text-sm text-zinc-200 italic font-sans">
+                                    {"\"This project changed my understanding of leadership. My responsibility wasn't to have every answer—it was to reduce uncertainty for the team. The more ambiguity I absorbed through stakeholder alignment, the more confidently designers and developers could focus on building the product.\""}
                                 </p>
                             </div>
-                        </div>
-                        <div className="grid md:grid-cols-2 gap-8 border-b border-[#1f1f23]/60 pb-4">
-                            <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution"}</span>
-                                <p className="text-sm text-zinc-300">
-                                    {"Structured custom frontend specifications matching visual token parameters."}
-                                </p>
-                            </div>
-                            <div className="space-y-1">
-                                <span className="text-sm font-mono text-zinc-500 uppercase">{"Outcome"}</span>
-                                <p className="text-sm text-emerald-400 font-semibold">
-                                    {"Adjusted team roadmaps within 48 hours without launch target delays."}
-                                </p>
-                            </div>
-                        </div>
-                        <div className="pt-2">
-                            <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Leadership Reflection"}</span>
-                            <p className="text-sm text-zinc-200 italic font-sans">
-                                {"\"Design leaders are shock absorbers. Running dual-track sprints kept engineering focused on stable code blocks while we aligned policy details on the design side.\""}
-                            </p>
                         </div>
                     </div>
                 </section>
@@ -722,7 +696,7 @@ export default function UniverseCPage() {
                 <section id="outcomes" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-20">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Chapter 08 // Real Impact"}
+                            {"OUTCOMES"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
                             {"Measuring Success"}
@@ -733,20 +707,24 @@ export default function UniverseCPage() {
                         {/* Product Outcomes */}
                         <div className="bg-[#0c0c0e] border border-[#1f1f23] p-6 rounded-xl space-y-4">
                             <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">
-                                {"Product Evolution"}
+                                {"PRODUCT OUTCOMES"}
                             </span>
-                            <ul className="text-sm text-zinc-400 space-y-2">
+                            <ul className="text-[15px] text-zinc-300 leading-relaxed space-y-3">
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Fast discoverability via indexed search."}</span>
+                                    <span>{"Search became the primary path for manuscript discovery."}</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Consistent layout rules matching accessibility."}</span>
+                                    <span>{"Metadata standardisation enabled more consistent search results across institutions."}</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Simplified terminology for non-expert users."}</span>
+                                    <span>{"Simplified terminology and information hierarchy improved accessibility for researchers and general users."}</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-emerald-400 mt-0.5">{"✓"}</span>
+                                    <span>{"Discovery remained the primary experience while preserving a clear contribution journey."}</span>
                                 </li>
                             </ul>
                         </div>
@@ -754,20 +732,28 @@ export default function UniverseCPage() {
                         {/* Platform Stats */}
                         <div className="bg-[#0c0c0e] border border-[#1f1f23] p-6 rounded-xl space-y-4">
                             <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">
-                                {"Platform Impact"}
+                                {"PLATFORM IMPACT"}
                             </span>
                             <div className="space-y-3">
                                 <div>
                                     <span className="text-2xl font-sans text-white block">{"14.3M+"}</span>
-                                    <span className="text-sm text-zinc-500 font-mono">{"Manuscripts cataloged"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono">{"Manuscripts"}</span>
                                 </div>
                                 <div>
                                     <span className="text-2xl font-sans text-white block">{"11.6M+"}</span>
-                                    <span className="text-sm text-zinc-500 font-mono">{"Preservation requests"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono">{"Digitisation Requests"}</span>
                                 </div>
                                 <div>
                                     <span className="text-2xl font-sans text-white block">{"60+"}</span>
-                                    <span className="text-sm text-zinc-500 font-mono">{"Partner institutions"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono">{"Participating Institutions"}</span>
+                                </div>
+                                <div>
+                                    <span className="text-2xl font-sans text-white block">{"10K+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono">{"Platform Users"}</span>
+                                </div>
+                                <div>
+                                    <span className="text-2xl font-sans text-white block">{"10K+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono">{"Android App Downloads"}</span>
                                 </div>
                             </div>
                         </div>
@@ -775,20 +761,24 @@ export default function UniverseCPage() {
                         {/* Leadership Metrics */}
                         <div className="bg-[#0c0c0e] border border-[#1f1f23] p-6 rounded-xl space-y-4">
                             <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">
-                                {"Leadership Outcomes"}
+                                {"LEADERSHIP OUTCOMES"}
                             </span>
-                            <ul className="text-sm text-zinc-400 space-y-2">
+                            <ul className="text-[15px] text-zinc-300 leading-relaxed space-y-3">
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Cross-functional alignment across ministries."}</span>
+                                    <span>{"Aligned stakeholders across evolving product requirements."}</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Sustained sprint velocity through transitions."}</span>
+                                    <span>{"Led a multidisciplinary design team through an ambiguous first-of-its-kind government initiative."}</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="text-emerald-400 mt-0.5">{"✓"}</span>
-                                    <span>{"Pragmatic governance token models."}</span>
+                                    <span>{"Balanced delivery speed with long-term scalability through deliberate product prioritisation."}</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-emerald-400 mt-0.5">{"✓"}</span>
+                                    <span>{"Established reusable design foundations that enabled consistent product development."}</span>
                                 </li>
                             </ul>
                         </div>
@@ -796,23 +786,86 @@ export default function UniverseCPage() {
                 </section>
 
                 {/* Chapter 9: Reflection & Ending */}
-                <section id="reflection" className="scroll-mt-16 space-y-8 min-h-[40vh] flex flex-col justify-center max-w-3xl mx-auto">
+                <section id="reflection" className="scroll-mt-16 space-y-12 min-h-[90vh] flex flex-col justify-center max-w-3xl mx-auto py-12">
+                    {/* Header */}
                     <div className="space-y-4 text-center">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Chapter 09 // Reflection"}
+                            {"REFLECTION"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
-                            {"The Strategic Takeaway"}
+                            {"What This Project Taught Me"}
                         </h2>
                     </div>
 
-                    <div className="space-y-8 mt-6">
-                        <p className="text-xl md:text-2xl text-zinc-200 font-sans italic leading-relaxed text-center">
-                            {"\"The hardest part of designing government products isn't designing interfaces. It's aligning policy, operations, engineering, and user needs into a product that can evolve for years.\""}
-                        </p>
-                        <div className="w-12 h-px bg-emerald-500/50 mx-auto" />
-                        <p className="text-sm md:text-base text-zinc-400 leading-relaxed text-center">
-                            {"Gyan Bharatam fundamentally changed how I think about product strategy, design leadership, and designing for national scale. It proved that a design leader's primary tool is alignment—unlocking complex cross-functional pathways to create lasting preservation platforms."}
+                    {/* Large Memorable Quote */}
+                    <div className="py-8 border-t border-b border-[#1f1f23] border-dashed text-center">
+                        <blockquote className="text-xl md:text-3xl font-serif text-emerald-400 leading-normal max-w-2xl mx-auto italic">
+                            {"\"Great product design isn't about creating more features. It's about helping people make better decisions at scale.\""}
+                        </blockquote>
+                    </div>
+
+                    {/* 5 Leadership Principles */}
+                    <div className="space-y-8">
+                        <h3 className="text-sm font-mono uppercase text-zinc-500 tracking-wider">
+                            {"What I'll Carry Forward"}
+                        </h3>
+                        <div className="space-y-6">
+                            {/* Principle 1 */}
+                            <div className="flex gap-4 items-start">
+                                <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
+                                <div className="space-y-1">
+                                    <h4 className="text-base font-serif text-white font-semibold">{"Design for future scale"}</h4>
+                                    <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Design for the future, not today's scale."}</p>
+                                    <p className="text-[15px] text-zinc-300 leading-relaxed">{"Discovery, metadata, and information architecture should anticipate growth rather than react to it."}</p>
+                                </div>
+                            </div>
+
+                            {/* Principle 2 */}
+                            <div className="flex gap-4 items-start">
+                                <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
+                                <div className="space-y-1">
+                                    <h4 className="text-base font-serif text-white font-semibold">{"Prioritize the product first"}</h4>
+                                    <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Prioritize the product before the system."}</p>
+                                    <p className="text-[15px] text-zinc-300 leading-relaxed">{"Foundations matter, but only after the core experience has been validated."}</p>
+                                </div>
+                            </div>
+
+                            {/* Principle 3 */}
+                            <div className="flex gap-4 items-start">
+                                <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
+                                <div className="space-y-1">
+                                    <h4 className="text-base font-serif text-white font-semibold">{"Discovery before contribution"}</h4>
+                                    <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Let user intent guide product decisions."}</p>
+                                    <p className="text-[15px] text-zinc-300 leading-relaxed">{"Discovery came before contribution because understanding existing knowledge was the platform's primary purpose."}</p>
+                                </div>
+                            </div>
+
+                            {/* Principle 4 */}
+                            <div className="flex gap-4 items-start">
+                                <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
+                                <div className="space-y-1">
+                                    <h4 className="text-base font-serif text-white font-semibold">{"Align people before processes"}</h4>
+                                    <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Alignment is a leadership skill."}</p>
+                                    <p className="text-[15px] text-zinc-300 leading-relaxed">{"Reducing ambiguity for designers, developers, and stakeholders created more value than solving interface problems alone."}</p>
+                                </div>
+                            </div>
+
+                            {/* Principle 5 */}
+                            <div className="flex gap-4 items-start">
+                                <span className="text-emerald-400 text-lg shrink-0 mt-0.5">{"✓"}</span>
+                                <div className="space-y-1">
+                                    <h4 className="text-base font-serif text-white font-semibold">{"Simplicity creates trust"}</h4>
+                                    <p className="text-sm font-mono text-emerald-400/90 font-medium tracking-wide">{"Simplicity is a product strategy."}</p>
+                                    <p className="text-[15px] text-zinc-300 leading-relaxed">{"The most impactful improvements weren't additional features—they were making the right actions easier to understand."}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Closing Line */}
+                    <div className="pt-6 border-t border-[#1f1f23] text-center">
+                        <p className="text-[15px] text-zinc-400 font-mono italic">
+                            {"These principles continue to shape how I lead product teams and approach large-scale digital transformation projects."}
                         </p>
                     </div>
                 </section>
