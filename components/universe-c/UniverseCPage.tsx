@@ -316,10 +316,13 @@ export default function UniverseCPage() {
                             <span className="absolute -left-[37px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"100K Pilot"}</span>
-                            <h4 className="text-sm font-semibold text-white">{"Traditional Browse Tree"}</h4>
+                            <span className="text-sm font-mono text-zinc-500 uppercase">
+                                <span className="font-sans font-normal">{"100K"}</span>
+                                {" Legacy Collection"}
+                            </span>
+                            <h4 className="text-sm font-semibold text-white">{"Traditional Browsing Worked"}</h4>
                             <p className="text-sm text-zinc-400 max-w-2xl">
-                                {"The initial catalog pilot supported 100K items. Library partners categorized manuscript folders in a classic taxonomy tree. The browse hierarchy seemed clean and functional."}
+                                {"The legacy platform contained around 100,000 digitised manuscripts. At this scale, browsing through categories and collections was a practical way to explore content because the catalog remained relatively small and manageable."}
                             </p>
                         </div>
 
@@ -327,10 +330,13 @@ export default function UniverseCPage() {
                             <span className="absolute -left-[37px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 border border-emerald-500/40">
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
-                            <span className="text-sm font-mono text-zinc-500 uppercase">{"14.3M+ Target"}</span>
-                            <h4 className="text-sm font-semibold text-white">{"Browsing No Longer Worked"}</h4>
+                            <span className="text-sm font-mono text-zinc-500 uppercase">
+                                <span className="font-sans font-normal">{"14.3M+"}</span>
+                                {" Manuscripts"}
+                            </span>
+                            <h4 className="text-sm font-semibold text-white">{"Browsing Reached Its Limits"}</h4>
                             <p className="text-sm text-zinc-400 max-w-2xl">
-                                {"As target scope increased to 14.3M+ items across 60+ institutions, browsing trees collapsed. Multiple scripts, dialect spelling variations, and catalog differences meant identical items were scattered under completely different subfolders."}
+                                {"As the platform expanded across 60+ institutions and millions of manuscript records, traditional browsing became increasingly difficult. Different metadata standards, languages, and cataloguing practices made it harder for users to consistently discover relevant manuscripts."}
                             </p>
                         </div>
 
@@ -339,9 +345,9 @@ export default function UniverseCPage() {
                                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             </span>
                             <span className="text-sm font-mono text-emerald-400 uppercase font-bold">{"Decision Point"}</span>
-                            <h4 className="text-sm font-bold text-white">{"Tension Hook"}</h4>
+                            <h4 className="text-sm font-bold text-white">{"The Realisation"}</h4>
                             <p className="text-sm text-zinc-200 max-w-2xl italic font-sans">
-                                {"\"At around 100,000 manuscripts, browsing still worked reasonably well. As the repository expanded across institutions, we realized the existing discovery model would not scale.\""}
+                                {"\"We realised we weren't designing for today's catalogue—we were designing for the platform it needed to become. Discovery could no longer depend on browsing alone.\""}
                             </p>
                         </div>
 
@@ -352,7 +358,7 @@ export default function UniverseCPage() {
                             <span className="text-sm font-mono text-zinc-500 uppercase">{"The Transformation"}</span>
                             <h4 className="text-sm font-semibold text-emerald-400">{"Search Became the Primary Experience"}</h4>
                             <p className="text-sm text-zinc-400 max-w-2xl">
-                                {"Pivoted the interface architecture to a unified search input, simplifying manuscript lookups across fragmented collections."}
+                                {"Instead of treating search as a secondary feature, we redesigned discovery around it. The experience shifted from navigating folders and categories to helping users quickly find manuscripts through a unified search-first approach."}
                             </p>
                         </div>
                     </div>
@@ -363,13 +369,13 @@ export default function UniverseCPage() {
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"The Challenge"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"Inconsistent spelling conventions and naming variations across library catalogs made folder browsing increasingly difficult to manage. Restructuring directories manually or using simple tag filters were considered, but a unified manuscript search was required to aggregate results cleanly."}
+                                    {"Collections from different institutions followed different naming conventions, metadata structures, and languages. A browsing-based experience would become increasingly fragmented as the repository continued to grow, making discovery more difficult for both researchers and general users."}
                                 </p>
                             </div>
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"The Decision"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"We co-defined search as the primary discovery experience, removing the hierarchical folder browse path. This required library partners to structure metadata upfront, but protected researchers from browsing empty or disorganized directories."}
+                                    {"We co-defined search as the primary discovery experience while simplifying the browsing model. The focus shifted from navigating institutional collections to helping users locate manuscripts through a consistent and accessible search experience."}
                                 </p>
                             </div>
                         </div>
@@ -377,13 +383,13 @@ export default function UniverseCPage() {
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution & Outcome"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"Designed a search interface that mapped query spelling variations to normalized search parameters. The platform now supports discovery across 14.3M+ manuscripts from 60+ participating institutions."}
+                                    {"The search experience was redesigned with simplified terminology, clearer information hierarchy, search suggestions, and metadata-driven discovery. These foundations now support exploration across more than 14.3 million manuscript records contributed by over 60 institutions."}
                                 </p>
                             </div>
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Reflection"}</span>
                                 <p className="text-sm text-zinc-200 italic font-sans">
-                                    {"\"Search is not just an interface component; it is the retrieval model that dictates platform utility at scale. Aligning on search over browse protected the platform from catalog fragmentation.\""}
+                                    {"\"This project changed how I think about search. At this scale, search wasn't just another feature—it became the foundation that connected millions of manuscript records into a single, discoverable experience.\""}
                                 </p>
                             </div>
                         </div>
