@@ -121,7 +121,7 @@ export default function UniverseCPage() {
                     {/* Eyebrow & Title */}
                     <div className="space-y-6">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.3em] block">
-                            {"CASE STUDY // Government Digital Transformation"}
+                            {"CASE STUDY • Government Digital Transformation"}
                         </span>
                         <h1 className="text-3xl md:text-5xl lg:text-6xl font-sans text-white leading-[3rem] lg:leading-[4.5rem] font-light tracking-tight">
                             {"Designing a Discovery Platform That Scaled "}
@@ -273,13 +273,13 @@ export default function UniverseCPage() {
                 <section id="mission" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-24">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Chapter 02 // Cultural Preservation Context"}
+                            {"THE PRODUCT CHALLENGE"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
                             {"Why Digitisation Alone Wasn't Enough"}
                         </h2>
                         <p className="text-zinc-400 leading-relaxed text-sm md:text-base">
-                            {"India possesses centuries of scientific heritage, philosophies, and historical records. However, physical decay and lack of digitization make preservation a pressing challenge. Prior to this project, gaining access to records was slow, often blocked by paper-based validation bottlenecks. Researchers frequently waited months to request manual verifications of copies stored in separate libraries."}
+                            {"Preserving manuscripts was only the first step. The larger challenge was making millions of records discoverable across institutions with different cataloguing methods, metadata standards, and languages. Without a unified approach, valuable knowledge remained scattered, difficult to search, and inaccessible to researchers and the public."}
                         </p>
                     </div>
 
@@ -287,13 +287,13 @@ export default function UniverseCPage() {
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-3">
                             <span className="text-sm font-mono text-emerald-400 uppercase">{"The Preservation Challenge"}</span>
                             <p className="text-sm text-zinc-400 leading-relaxed">
-                                {"Historical texts represent core intellectual assets. Physical deterioration and lack of high-fidelity backups meant centuries of records were at risk of vanishing permanently."}
+                                {"Many manuscripts existed only as fragile physical documents. Even when digitised, they remained vulnerable if records were incomplete, inconsistent, or difficult to maintain. Long-term preservation required more than scanning it required structured, reliable digital records."}
                             </p>
                         </div>
                         <div className="border border-[#1f1f23] bg-[#0c0c0e]/50 p-6 rounded-xl space-y-3">
                             <span className="text-sm font-mono text-emerald-400 uppercase">{"The Discovery Challenge"}</span>
                             <p className="text-sm text-zinc-400 leading-relaxed">
-                                {"Early digitisation efforts created disconnected local databases with inconsistent spelling standards. Without a unified query system, researchers could not locate records across institutions."}
+                                {"Collections were distributed across institutions using different metadata structures, naming conventions, and cataloguing practices. Finding a specific manuscript often required searching multiple systems, making discovery slow and inconsistent for both researchers and citizens."}
                             </p>
                         </div>
                     </div>
@@ -303,7 +303,7 @@ export default function UniverseCPage() {
                 <section id="tp-1" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-24">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Turning Point 03 // Search Foundations"}
+                            {"TURNING POINT 01"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
                             {"Browsing Was No Longer Enough"}
@@ -394,7 +394,7 @@ export default function UniverseCPage() {
                 <section id="tp-2" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-20">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Turning Point 04 // Information Architecture Scale"}
+                            {"TURNING POINT 02"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
                             {"We Designed for Future Scale"}
@@ -464,7 +464,7 @@ export default function UniverseCPage() {
                 <section id="tp-3" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-20">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Turning Point 05 // UI System Prioritization"}
+                            {"TURNING POINT 03"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
                             {"We Chose Not to Build Everything"}
@@ -539,7 +539,7 @@ export default function UniverseCPage() {
                 <section id="tp-4" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-20">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Turning Point 06 // Alignment & Data Quality"}
+                            {"TURNING POINT 04"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
                             {"We Prioritized Discovery Before Contribution"}
@@ -615,7 +615,7 @@ export default function UniverseCPage() {
                 <section id="tp-5" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-20">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Turning Point 07 // Managing Ambiguity"}
+                            {"TURNING POINT 05"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
                             {"Leadership Was About Aligning People More Than Designing Screens"}
@@ -678,7 +678,7 @@ export default function UniverseCPage() {
                 <section id="outcomes" className="scroll-mt-16 space-y-8 border-b border-[#1f1f23] pb-20">
                     <div className="space-y-4 max-w-3xl">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Chapter 08 // Real Impact"}
+                            {"OUTCOMES"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
                             {"Measuring Success"}
@@ -755,7 +755,7 @@ export default function UniverseCPage() {
                 <section id="reflection" className="scroll-mt-16 space-y-8 min-h-[40vh] flex flex-col justify-center max-w-3xl mx-auto">
                     <div className="space-y-4 text-center">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.2em] block">
-                            {"Chapter 09 // Reflection"}
+                            {"REFLECTION"}
                         </span>
                         <h2 className="text-3xl md:text-5xl font-serif text-white font-normal leading-tight">
                             {"The Strategic Takeaway"}
