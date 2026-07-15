@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { 
-    BookOpen, 
-    ShieldAlert, 
-    GitBranch, 
-    Layers, 
-    Settings, 
-    Compass, 
-    Activity, 
-    CheckCircle, 
+import {
+    BookOpen,
+    ShieldAlert,
+    GitBranch,
+    Layers,
+    Settings,
+    Compass,
+    Activity,
+    CheckCircle,
     MessageSquare,
     ChevronDown
 } from "lucide-react";
@@ -72,7 +72,7 @@ export default function UniverseCPage() {
 
     return (
         <div className="min-h-screen bg-[#070708] text-[#e4e4e7] flex font-sans selection:bg-emerald-500/20 selection:text-emerald-400">
-            
+
             {/* Left Sidebar - Navigation */}
             <aside className="hidden lg:flex flex-col w-80 h-screen sticky top-0 bg-[#0c0c0e] border-r border-[#1f1f23] p-6 justify-between shrink-0 overflow-y-auto">
                 <div className="space-y-6">
@@ -117,7 +117,7 @@ export default function UniverseCPage() {
 
                 {/* Chapter 1: The Executive Overview - HIGH-IMPACT HERO */}
                 <section id="overview" className="scroll-mt-16 space-y-16 min-h-[90vh] flex flex-col justify-center border-b border-[#1f1f23] pb-24">
-                    
+
                     {/* Eyebrow & Title */}
                     <div className="space-y-6">
                         <span className="font-mono text-sm text-emerald-400 uppercase tracking-[0.3em] block">
@@ -135,35 +135,55 @@ export default function UniverseCPage() {
                     {/* Transformation Statement */}
                     <div className="max-w-3xl">
                         <p className="text-lg md:text-xl text-zinc-300 leading-relaxed font-light font-sans">
-                            {"Helped transform a fragmented manuscript ecosystem into a scalable national platform by leading UX direction, aligning stakeholders, and shaping product decisions across discovery, digitisation, and institutional collaboration."}
+                            {"Contributed to product strategy and led UX direction for Gyan Bharatam, helping transform a fragmented manuscript ecosystem into a scalable national platform for discovery, digitisation, and institutional collaboration. Guided a multidisciplinary design team, aligned stakeholders across government and engineering, and delivered experiences designed to support long-term growth."}
                         </p>
                     </div>
 
                     {/* Platform Scale Metrics */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-8 py-8 border-t border-b border-[#1f1f23] border-dashed">
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"14.3M+"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Manuscripts"}</span>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-8 border-t border-b border-[#1f1f23] border-dashed">
+                        {/* Platform stats */}
+                        <div className="space-y-8">
+                            <span className="text-xs font-mono uppercase text-emerald-400 tracking-wider block">{"Platform"}</span>
+                            <div className="space-y-6">
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"14.3M+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Manuscripts"}</span>
+                                </div>
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"11.6M+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Digitisation Requests"}</span>
+                                </div>
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"60+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Institutions"}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"11.6M+"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Digitisation Requests"}</span>
+
+                        {/* Adoption stats */}
+                        <div className="space-y-8">
+                            <span className="text-xs font-mono uppercase text-emerald-400 tracking-wider block">{"Adoption"}</span>
+                            <div className="space-y-6">
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"10K+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Users"}</span>
+                                </div>
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"10K+"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"App Downloads"}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"60+"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Institutions"}</span>
-                        </div>
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"10K+"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Platform Users"}</span>
-                        </div>
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"10K+"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Mobile Downloads"}</span>
-                        </div>
-                        <div>
-                            <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight">{"3"}</span>
-                            <span className="text-sm md:text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Designers Led"}</span>
+
+                        {/* Leadership stats */}
+                        <div className="space-y-8">
+                            <span className="text-xs font-mono uppercase text-emerald-400 tracking-wider block">{"Leadership"}</span>
+                            <div className="space-y-6">
+                                <div>
+                                    <span className="text-4xl md:text-5xl font-sans text-white block tracking-tight font-light">{"3"}</span>
+                                    <span className="text-sm text-zinc-500 font-mono uppercase tracking-wider block mt-1">{"Designers Led"}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -232,7 +252,7 @@ export default function UniverseCPage() {
 
                     {/* Scroll Indicator */}
                     <div className="flex justify-center pt-8">
-                        <button 
+                        <button
                             onClick={() => scrollToSection("mission")}
                             className="flex flex-col items-center gap-2 text-zinc-500 hover:text-emerald-400 transition-colors text-sm font-mono"
                         >
