@@ -407,25 +407,37 @@ export default function UniverseCPage() {
 
                     {/* Ecosystem Schema Mapping */}
                     <div className="bg-[#0c0c0e] border border-[#1f1f23] p-8 rounded-xl space-y-6 max-w-4xl">
-                        <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"Data Import & Indexing Pipeline"}</span>
+                        <span className="text-sm font-mono uppercase text-emerald-400 tracking-wider block">{"Bringing 60+ Institutions into One Search Experience"}</span>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-                            <div className="border border-zinc-800 bg-zinc-900/50 p-4 rounded-lg space-y-2">
-                                <span className="text-sm font-mono text-zinc-500 uppercase tracking-wider">{"60+ Institutions"}</span>
+                            <div className="border border-zinc-800 bg-zinc-900/50 p-4 rounded-lg space-y-3">
+                                <span className="text-sm font-mono text-zinc-500 uppercase tracking-wider block">
+                                    <span className="font-sans font-normal">{"60+"}</span>
+                                    {" Institutions"}
+                                </span>
                                 <div className="space-y-1">
-                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library A Catalog (Script 1)"}</div>
-                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library B Catalog (Script 2)"}</div>
-                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library C Catalog (Script 3)"}</div>
+                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library A"}</div>
+                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library B"}</div>
+                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono">{"Library C"}</div>
+                                    <div className="px-2 py-1 bg-zinc-900 border border-zinc-800 rounded text-xs font-mono text-zinc-500">{"..."}</div>
                                 </div>
+                                <p className="text-xs text-zinc-500 leading-normal">
+                                    {"Each institution managed manuscripts using its own metadata structure, naming conventions, and cataloguing practices."}
+                                </p>
                             </div>
                             <div className="flex flex-col items-center justify-center">
                                 <span className="text-zinc-600 hidden md:block">{"➔"}</span>
                                 <span className="text-sm font-mono text-emerald-400 text-center py-1">{"Common Metadata Framework"}</span>
                             </div>
-                            <div className="border border-emerald-500/20 bg-emerald-950/10 p-4 rounded-lg space-y-2">
-                                <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider">{"One Search Across All Collections (14.3M+)"}</span>
+                            <div className="border border-emerald-500/20 bg-emerald-950/10 p-4 rounded-lg space-y-3">
+                                <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block">{"One Search Across All Collections"}</span>
                                 <div className="space-y-1">
-                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-sm font-mono text-zinc-300">{"Standard Tag: 'Rigveda'"}</div>
-                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-sm font-mono text-zinc-300">{"Standard Tag: 'Ayurveda'"}</div>
+                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-sm font-mono text-zinc-300 font-bold">
+                                        <span className="font-sans">{"14.3M+"}</span>
+                                        {" Manuscripts"}
+                                    </div>
+                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-xs font-mono text-zinc-400">{"Consistent Search"}</div>
+                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-xs font-mono text-zinc-400">{"Standardised Metadata"}</div>
+                                    <div className="px-2 py-1 bg-zinc-950 border border-emerald-500/20 rounded text-xs font-mono text-zinc-400">{"Reliable Discovery"}</div>
                                 </div>
                             </div>
                         </div>
@@ -437,13 +449,13 @@ export default function UniverseCPage() {
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"The Challenge"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"Partner libraries used different spelling formats and metadata labels, which prevented accurate search filtering at scale. We had to decide between letting libraries keep custom profiles or enforcing a common metadata framework."}
+                                    {"Every participating institution described manuscripts differently. Variations in metadata, terminology, and cataloguing practices made it difficult to deliver consistent search results across a growing national collection. Without a shared structure, users would receive incomplete or inconsistent results depending on where the manuscript originated."}
                                 </p>
                             </div>
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"The Decision"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"We established standard metadata schemas across participating institutions, mapping local variables to core standardized tags. This added friction for catalog catalogers but kept search filters reliable."}
+                                    {"We established a common metadata framework that allowed institutions to preserve their local cataloguing practices while mapping essential fields into a consistent structure for discovery. This created a single search experience without requiring every institution to redesign its existing records."}
                                 </p>
                             </div>
                         </div>
@@ -451,13 +463,13 @@ export default function UniverseCPage() {
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-zinc-500 uppercase">{"Execution & Outcome"}</span>
                                 <p className="text-sm text-zinc-300">
-                                    {"Created mapping interfaces and data validations for library administrators, integrating 14.3M+ manuscripts into a common framework."}
+                                    {"The platform introduced a consistent metadata model for discovery, supported by improved validation, clearer field structures, and standardized search behaviour. This enabled users to search across more than 14.3 million manuscript records from over 60 participating institutions through a unified experience."}
                                 </p>
                             </div>
                             <div className="space-y-1">
                                 <span className="text-sm font-mono text-emerald-400 uppercase tracking-wider block mb-1">{"Reflection"}</span>
                                 <p className="text-sm text-zinc-200 italic font-sans">
-                                    {"\"Designing for scale is about structuring database parameters before building visual layouts. Getting the data schema right ensures the platform remains stable as collections grow.\""}
+                                    {"\"Designing for scale taught me that consistency isn't about making every institution work the same way. It's about creating a shared language that allows different systems to work together while remaining simple for the people searching.\""}
                                 </p>
                             </div>
                         </div>
