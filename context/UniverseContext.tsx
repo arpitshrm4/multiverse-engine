@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
 import { UniverseId } from '@/lib/types';
 
 interface UniverseContextType {
@@ -10,9 +11,60 @@ interface UniverseContextType {
 
 const UniverseContext = createContext<UniverseContextType | undefined>(undefined);
 
+const pathnameMap: Record<string, UniverseId> = {
+    '/personal-journal': 'A',
+    '/work': 'B',
+    '/storytelling': 'C',
+    '/systems-thinking': 'D',
+    '/mars-signal-station': 'E',
+};
+
+const universeUrlMap: Record<UniverseId, string> = {
+    'LOBBY': '/',
+    'A': '/personal-journal',
+    'B': '/work',
+    'C': '/storytelling',
+    'D': '/systems-thinking',
+    'E': '/mars-signal-station',
+};
+
 export function UniverseProvider({ children }: { children: ReactNode }) {
-    // Start new sessions in the planetary lobby
-    const [universe, setUniverse] = useState<UniverseId>('LOBBY');
+    const pathname = usePathname();
+
+    // Get initial state from pathname (either on server or on client mount)
+    const [universe, setUniverseState] = useState<UniverseId>(() => {
+        return pathnameMap[pathname] || 'LOBBY';
+    });
+
+    // Synchronize pathname changes directly during render to avoid cascading effects
+    const [prevPathname, setPrevPathname] = useState(pathname);
+    if (pathname !== prevPathname) {
+        setPrevPathname(pathname);
+        const targetUniverse = pathnameMap[pathname] || 'LOBBY';
+        if (universe !== targetUniverse) {
+            setUniverseState(targetUniverse);
+        }
+    }
+
+    // Push new path to address bar and update state
+    const setUniverse = (id: UniverseId) => {
+        setUniverseState(id);
+        const targetPath = universeUrlMap[id] || '/';
+        if (typeof window !== 'undefined' && window.location.pathname !== targetPath) {
+            window.history.pushState(null, '', targetPath);
+        }
+    };
+
+    // Keep state in sync with history popstate event (back/forward browser buttons)
+    useEffect(() => {
+        const handlePopState = () => {
+            const currentPath = window.location.pathname;
+            const targetUniverse = pathnameMap[currentPath] || 'LOBBY';
+            setUniverseState(targetUniverse);
+        };
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, []);
 
     return (
         <UniverseContext.Provider value={{ universe, setUniverse }}>
