@@ -448,7 +448,7 @@ export const siteData: SiteData = {
         heading: "Let's Work Together",
         content: "If you're building a product and care about clarity, systems, and outcomes, feel free to reach out.",
         email: "arpitshrm4@gmail.com",
-        linkedin: "linkedin.com/in/arpitsharma"
+        linkedin: "linkedin.com/in/arpitshrma"
     },
     contactB: {
         heading: "Start a Conversation",
