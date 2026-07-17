@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 const links = [
-    { href: "/", label: "Journal" },
+    { href: "/personal-journal", label: "Journal" },
     { href: "/process", label: "Process" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
@@ -33,7 +33,7 @@ export default function Navbar() {
                 {/* Right: Navigation Links */}
                 <div className="flex gap-6">
                     {links.map((link) => {
-                        const isActive = pathname === link.href || (link.href === "/" && pathname === "/personal-journal");
+                        const isActive = pathname === link.href;
                         return (
                             <Link
                                 key={link.href}
