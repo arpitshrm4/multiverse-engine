@@ -1,23 +1,42 @@
-"use client";
-
-import { useUniverse } from "@/context/UniverseContext";
-import { siteData } from "@/lib/data";
-import StoryPage from "@/components/universe-b/StoryPage";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { useEffect } from "react";
+import { siteData } from "@/lib/data";
+import StoryDetailClient from "./StoryDetailClient";
 
-export default function StoryDetailPage({ params }: { params: { id: string } }) {
-    const { setUniverse } = useUniverse();
-    const project = siteData.projects.find(p => p.id === params.id);
+type Props = {
+    params: Promise<{ id: string }>;
+};
+
+export async function generateStaticParams() {
+    return siteData.projects
+        .filter((project) => project.universeContent.B)
+        .map((project) => ({
+            id: project.id,
+        }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const resolvedParams = await params;
+    const project = siteData.projects.find(p => p.id === resolvedParams.id);
     const story = project?.universeContent.B;
+    if (!story) return {};
 
-    useEffect(() => {
-        setUniverse('B');
-    }, [setUniverse]);
+    return {
+        title: `${story.title} | Storytelling Portfolio`,
+        description: story.hook,
+        openGraph: {
+            title: `${story.title} | Storytelling Portfolio`,
+            description: story.hook,
+            type: "article",
+        }
+    };
+}
 
-    if (!story) {
-        notFound();
-    }
+export default async function StoryPage({ params }: Props) {
+    const resolvedParams = await params;
+    const project = siteData.projects.find(p => p.id === resolvedParams.id);
 
-    return <StoryPage story={story} />;
+    if (!project) return notFound();
+
+    return <StoryDetailClient id={resolvedParams.id} />;
 }
