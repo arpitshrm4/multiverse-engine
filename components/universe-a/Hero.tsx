@@ -38,7 +38,7 @@ export default function Hero() {
             >
                 <Link 
                     href="/projects" 
-                    className="px-8 py-4 bg-[var(--text-primary)] text-white font-medium hover:opacity-90 transition-opacity"
+                    className="px-8 py-4 bg-[var(--text-primary)] text-black font-medium hover:opacity-90 transition-opacity"
                 >
                     View Case Studies
                 </Link>
