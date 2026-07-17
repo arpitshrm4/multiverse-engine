@@ -34,7 +34,7 @@ export default function DimensionIndicator({ onSwitchDimension }: DimensionIndic
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 4 }}
                         transition={{ duration: 0.1 }}
-                        className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-[var(--text-primary)] text-white text-xs whitespace-nowrap"
+                        className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-[var(--bg-secondary)] border border-[var(--border-color)] text-[var(--text-primary)] text-xs whitespace-nowrap rounded-[4px] shadow-lg"
                     >
                         Click to explore other dimensions
                     </motion.div>
