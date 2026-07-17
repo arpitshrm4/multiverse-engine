@@ -15,6 +15,7 @@ import SpaceBackground from "@/components/multiverse/SpaceBackground";
 import PlanetaryLobby from "@/components/multiverse/PlanetaryLobby";
 import KeyboardShortcuts from "@/components/multiverse/KeyboardShortcuts";
 import AudioAmbience from "@/components/multiverse/AudioAmbience";
+import LocalTimeIndicator from "@/components/multiverse/LocalTimeIndicator";
 
 // Placeholder components for future universes
 const UniversePlaceholder = ({ id }: { id: string }) => (
@@ -114,6 +115,8 @@ export default function MultiverseShell() {
                     <KeyboardShortcuts showPlanetShortcuts={false} />
                 </>
             )}
+
+            {booted && <LocalTimeIndicator />}
         </>
     );
 }
