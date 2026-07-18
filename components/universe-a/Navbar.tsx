@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 const links = [
-    { href: "/", label: "Journal" },
+    { href: "/personal-journal", label: "Journal" },
     { href: "/process", label: "Process" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
@@ -38,11 +38,12 @@ export default function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className={`text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb000] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] rounded-sm ${
-                                    isActive
-                                        ? "text-[var(--text-primary)]"
+                                className={`text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb000] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] rounded-sm ${isActive
+                                        ? "text-[var(--text-primary)] pointer-events-none cursor-default"
                                         : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-                                }`}
+                                    }`}
+                                onClick={isActive ? (e) => e.preventDefault() : undefined}
+                                tabIndex={isActive ? -1 : undefined}
                             >
                                 {link.label}
                             </Link>

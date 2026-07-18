@@ -99,16 +99,6 @@ export default function LocalTimeIndicator() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        setMounted(true);
-        
-        // Detect timezone and country name on mount
-        try {
-            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            setCountryName(getCountryFromTimezone(tz));
-        } catch (e) {
-            setCountryName("Local");
-        }
-
         const updateClock = () => {
             const now = new Date();
             let hours = now.getHours();
@@ -120,10 +110,25 @@ export default function LocalTimeIndicator() {
             setTimeString(`${hours}:${minutesStr} ${ampm}`);
         };
 
-        updateClock();
+        const handle = requestAnimationFrame(() => {
+            let country = "Local";
+            try {
+                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                country = getCountryFromTimezone(tz);
+            } catch {
+                // Ignore
+            }
+            setCountryName(country);
+            updateClock();
+            setMounted(true);
+        });
+
         const intervalId = setInterval(updateClock, 1000);
 
-        return () => clearInterval(intervalId);
+        return () => {
+            cancelAnimationFrame(handle);
+            clearInterval(intervalId);
+        };
     }, []);
 
     // Prevent hydration mismatch
