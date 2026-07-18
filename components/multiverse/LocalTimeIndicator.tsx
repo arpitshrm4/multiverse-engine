@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useUniverse } from "@/context/UniverseContext";
 
 // Timezone to Country mapping
 const timezoneToCountry: Record<string, string> = {
@@ -94,6 +95,7 @@ function getCountryFromTimezone(timezone: string): string {
 }
 
 export default function LocalTimeIndicator() {
+    const { universe } = useUniverse();
     const [timeString, setTimeString] = useState("");
     const [countryName, setCountryName] = useState("");
     const [mounted, setMounted] = useState(false);
@@ -140,7 +142,9 @@ export default function LocalTimeIndicator() {
             animate={{ opacity: 0.35 }}
             whileHover={{ opacity: 0.8 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-8 left-8 z-[60] flex items-center gap-2 select-none pointer-events-auto cursor-default font-mono text-[9px] tracking-widest text-[var(--text-secondary)] uppercase"
+            className={`fixed bottom-8 z-[60] flex items-center gap-2 select-none pointer-events-auto cursor-default font-mono text-[9px] tracking-widest text-[var(--text-secondary)] uppercase transition-all duration-300 ${
+                universe === 'C' ? 'left-8 lg:left-[352px]' : 'left-8'
+            }`}
         >
             <span>{timeString}</span>
             <span className="w-1 h-1 rounded-full bg-[var(--text-secondary)] opacity-50" />
