@@ -456,7 +456,8 @@ export const siteData: SiteData = {
     },
     footer: {
         copyright: "Arpit Sharma",
-        dimension: "Dimension A — Personal Journal (Origin)",
-        tagline: "Part of the Multiverse Design Engine"
+        dimension: "Human",
+        perspective: "Perspective 01 of the Multiverse",
+        tagline: "The journey continues."
     }
 };

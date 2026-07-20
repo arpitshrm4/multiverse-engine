@@ -1,66 +1,60 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { siteData } from "@/lib/data";
-import Link from "next/link";
+import { Users, Compass, Sparkles } from "lucide-react";
 
 export default function HeroB() {
-    const hero = siteData.hero.B;
-    if (!hero) return null;
-
     return (
-        <section className="min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24">
+        <section className="pt-32 pb-20 px-6 md:px-16 lg:px-24 max-w-[1600px] mx-auto w-full">
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-                className="max-w-4xl"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col gap-8 max-w-5xl"
             >
-                {/* Headline - split by newline for dramatic effect */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-normal leading-tight text-white/90 mb-8">
-                    {hero.headline.split('\n').map((line, i) => (
-                        <motion.span
-                            key={i}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.3 + i * 0.3 }}
-                            className="block"
-                        >
-                            {line}
-                        </motion.span>
-                    ))}
+                {/* Badge Header */}
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-400 text-xs font-mono tracking-widest uppercase w-fit shadow-[0_0_15px_rgba(56,189,248,0.15)]">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Builder Perspective • Product Design Leadership</span>
+                </div>
+
+                {/* Product Design Leader Positioning Headline */}
+                <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold tracking-tight text-white leading-[1.1]">
+                    I simplify complexity for people, <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">
+                        help teams make better decisions
+                    </span>, and lead products that balance user needs with business impact.
                 </h1>
 
-                {/* Subtext */}
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 1 }}
-                    className="text-lg md:text-xl text-white/60 font-light mb-12 max-w-2xl"
-                >
-                    {hero.subtext}
-                </motion.p>
+                {/* Introductory Paragraph */}
+                <p className="text-lg md:text-2xl text-slate-300 font-sans leading-relaxed max-w-3xl font-light">
+                    Over a decade of leading product design across enterprise platforms, fintech infrastructure, and multi-brand design systems—bringing clarity to ambiguity and aligning teams around human outcomes.
+                </p>
 
-                {/* CTAs */}
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.3 }}
-                    className="flex flex-col sm:flex-row gap-4"
-                >
-                    <Link
-                        href="#stories"
-                        className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium hover:bg-white/20 transition-all duration-300"
-                    >
-                        Enter the Stories
-                    </Link>
-                    <Link
-                        href="#work"
-                        className="px-8 py-4 border border-white/10 text-white/70 font-medium hover:text-white hover:border-white/30 transition-all duration-300"
-                    >
-                        See the Work
-                    </Link>
-                </motion.div>
+                {/* Leadership Pillars */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 max-w-3xl">
+                    <div className="p-4 rounded bg-slate-900/60 border border-slate-800 flex items-center gap-3">
+                        <Compass className="w-5 h-5 text-cyan-400 shrink-0" />
+                        <div>
+                            <div className="text-xs font-mono text-slate-400 uppercase">Product Strategy</div>
+                            <div className="text-sm font-semibold text-white">Balancing Users & Business</div>
+                        </div>
+                    </div>
+                    <div className="p-4 rounded bg-slate-900/60 border border-slate-800 flex items-center gap-3">
+                        <Users className="w-5 h-5 text-cyan-400 shrink-0" />
+                        <div>
+                            <div className="text-xs font-mono text-slate-400 uppercase">Cross-Functional Alignment</div>
+                            <div className="text-sm font-semibold text-white">Engineering & Product Partner</div>
+                        </div>
+                    </div>
+                    <div className="p-4 rounded bg-slate-900/60 border border-slate-800 flex items-center gap-3">
+                        <Sparkles className="w-5 h-5 text-cyan-400 shrink-0" />
+                        <div>
+                            <div className="text-xs font-mono text-slate-400 uppercase">Team Enablement</div>
+                            <div className="text-sm font-semibold text-white">Design Maturity & Scale</div>
+                        </div>
+                    </div>
+                </div>
             </motion.div>
         </section>
     );

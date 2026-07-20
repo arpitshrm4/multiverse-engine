@@ -139,16 +139,15 @@ export default function LocalTimeIndicator() {
     return (
         <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.35 }}
-            whileHover={{ opacity: 0.8 }}
+            animate={{ opacity: 0.7 }}
+            whileHover={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className={`fixed bottom-8 z-[60] flex items-center gap-2 select-none pointer-events-auto cursor-default font-mono text-[9px] tracking-widest text-[var(--text-secondary)] uppercase transition-all duration-300 ${
-                universe === 'C' ? 'left-8 lg:left-[352px]' : 'left-8'
-            }`}
+            className={`fixed bottom-8 z-[60] flex items-center gap-2 select-none pointer-events-auto cursor-default font-mono text-[9px] tracking-widest text-[var(--text-secondary)] uppercase transition-all duration-300 ${universe === 'C' ? 'left-8 lg:left-[352px]' : 'left-8'
+                }`}
         >
             <span>{timeString}</span>
-            <span className="w-1 h-1 rounded-full bg-[var(--text-secondary)] opacity-50" />
-            <span>{countryName}</span>
+            <span className="w-1 h-1 rounded-full bg-[var(--text-secondary)]" />
+            <span>{countryName} • Arpit Sharma</span>
         </motion.div>
     );
 }

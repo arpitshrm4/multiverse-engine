@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import UniverseAPage from "@/components/universe-a/UniverseAPage";
 import UniverseBPage from "@/components/universe-b/UniverseBPage";
 import UniverseCPage from "@/components/universe-c/UniverseCPage";
+import UniverseDPage from "@/components/universe-d/UniverseDPage";
 import UniverseEPage from "@/components/universe-e/UniverseEPage";
 import DimensionSwitcher from "@/components/multiverse/DimensionSwitcher";
 import SystemOverlay from "@/components/multiverse/SystemOverlay";
@@ -16,18 +17,6 @@ import PlanetaryLobby from "@/components/multiverse/PlanetaryLobby";
 import KeyboardShortcuts from "@/components/multiverse/KeyboardShortcuts";
 import AudioAmbience from "@/components/multiverse/AudioAmbience";
 import LocalTimeIndicator from "@/components/multiverse/LocalTimeIndicator";
-
-// Placeholder components for future universes
-const UniversePlaceholder = ({ id }: { id: string }) => (
-    <div className="min-h-screen flex items-center justify-center bg-black text-white p-8">
-        <div className="text-center">
-            <h1 className="text-4xl font-mono mb-4 text-gray-500">
-                Dimension {id} <span className="text-red-500">OFFLINE</span>
-            </h1>
-            <p className="font-mono text-sm text-gray-700">Sequence not yet initiated.</p>
-        </div>
-    </div>
-);
 
 const warpTransition = {
     initial: { opacity: 0, scale: 1.05, filter: "blur(10px)" },
@@ -100,14 +89,14 @@ export default function MultiverseShell() {
                                 <UniverseCPage />
                             </motion.div>
                         )}
+                        {universe === 'D' && (
+                            <motion.div key="D" {...warpTransition}>
+                                <UniverseDPage />
+                            </motion.div>
+                        )}
                         {universe === 'E' && (
                             <motion.div key="E" {...warpTransition}>
                                 <UniverseEPage />
-                            </motion.div>
-                        )}
-                        {universe === 'D' && (
-                            <motion.div key="D" {...warpTransition}>
-                                <UniversePlaceholder id="D" />
                             </motion.div>
                         )}
                     </AnimatePresence>
