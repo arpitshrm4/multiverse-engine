@@ -262,19 +262,18 @@ function RefinedPlanet({
                         />
                     </mesh>
 
-                    {/* Planet Body */}
+                    {/* Planet Body - Always solid & opaque, dimmed softly when another planet is hovered */}
                     <mesh ref={meshRef} scale={[planet.size, planet.size, planet.size]}>
                         <sphereGeometry args={[1, planet.segments || 64, planet.segments || 64]} />
                         <meshStandardMaterial
                             map={textureMaps.map}
                             normalMap={planet.textures.normal ? textureMaps.normalMap : undefined}
-                            color="white"
+                            color={isHovered ? "#ffffff" : (isAnyHovered ? "#a1a1aa" : "#ffffff")}
                             roughness={planet.type === 'thinker' ? 0.85 : (planet.type === 'human' ? 0.6 : 0.4)}
                             metalness={planet.type === 'future' ? 0.2 : 0.1}
-                            emissive={isHovered ? planet.glowColor : "#0284c7"}
-                            emissiveIntensity={isHovered ? 0.25 : 0.08}
-                            transparent={isAnyHovered && !isHovered}
-                            opacity={planetOpacity}
+                            emissive={isHovered ? planet.glowColor : (planet.type === 'future' ? "#3d3215" : "#0284c7")}
+                            emissiveIntensity={isHovered ? 0.25 : (isAnyHovered ? 0.02 : 0.08)}
+                            transparent={false}
                         />
                     </mesh>
 

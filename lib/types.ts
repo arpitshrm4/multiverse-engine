@@ -117,6 +117,7 @@ export interface SiteData {
   footer: {
     copyright: string;
     dimension: string;
+    perspective?: string;
     tagline: string;
   };
 }
