@@ -27,12 +27,12 @@ const cormorantGaramond = Cormorant_Garamond({
 export const metadata: Metadata = {
   metadataBase: new URL("https://multiverse.arpitsharma.design"),
   title: {
-    default: "Arpit Sharma | Product Designer Portfolio",
+    default: "Arpit Sharma | Designer Portfolio",
     template: "%s | Arpit Sharma Portfolio"
   },
   description: "Explore the multiverse design portfolio of Arpit Sharma, featuring personal journal reflections, selected works, storytelling case studies, and systems thinking.",
   openGraph: {
-    title: "Arpit Sharma | Product Designer Portfolio",
+    title: "Arpit Sharma | Designer Portfolio",
     description: "Explore the multiverse design portfolio of Arpit Sharma, featuring personal journal reflections, selected works, storytelling case studies, and systems thinking.",
     url: "https://multiverse.arpitsharma.design",
     siteName: "Arpit Sharma Portfolio",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arpit Sharma | Product Designer Portfolio",
+    title: "Arpit Sharma | Designer Portfolio",
     description: "Explore the multiverse design portfolio of Arpit Sharma, featuring personal journal reflections, selected works, storytelling case studies, and systems thinking.",
   }
 };
