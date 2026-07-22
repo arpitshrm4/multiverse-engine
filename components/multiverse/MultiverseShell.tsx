@@ -62,7 +62,7 @@ export default function MultiverseShell() {
     return (
         <>
             <SystemOverlay universe={universe} />
-            {/* <AudioAmbience /> */}
+            <AudioAmbience />
 
             {!booted && <BootSequence onComplete={() => setBooted(true)} />}
 
