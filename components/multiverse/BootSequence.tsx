@@ -56,10 +56,10 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
                             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
                             className="text-xs tracking-[0.3em] uppercase text-amber-400/60"
                         >
-                            Multiverse Engine v1.0.0
+                            Hey you
                         </motion.div>
                         <h2 className="text-xl md:text-2xl font-bold tracking-wider text-white">
-                            SYSTEM ONLINE
+                            Entering the Multiverse...
                         </h2>
                     </div>
 
