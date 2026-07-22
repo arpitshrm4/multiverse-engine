@@ -5,10 +5,11 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 const links = [
-    { href: "/personal-journal", label: "Journal" },
-    { href: "/process", label: "Process" },
+    { href: "/personal-journal", label: "Human" },
+    { href: "/work", label: "Builder" },
+    { href: "/storytelling", label: "Thinker" },
+    { href: "/systems-thinking", label: "Curiosity" },
     { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -18,8 +19,8 @@ export default function Navbar() {
         <motion.nav
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.15 }}
-            className="fixed top-0 left-0 w-full z-40 bg-[var(--bg-primary)] border-b border-[var(--divider-color)]"
+            transition={{ duration: 0.2 }}
+            className="fixed top-0 left-0 w-full z-50 bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--divider-color)]"
         >
             <div className="container h-20 flex items-center justify-between">
                 {/* Left: Name */}
@@ -30,7 +31,7 @@ export default function Navbar() {
                     Arpit Sharma
                 </Link>
 
-                {/* Right: Navigation Links */}
+                {/* Right: Multiverse Perspective Links */}
                 <div className="flex gap-6">
                     {links.map((link) => {
                         const isActive = pathname === link.href;
@@ -39,7 +40,7 @@ export default function Navbar() {
                                 key={link.href}
                                 href={link.href}
                                 className={`text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb000] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] rounded-sm ${isActive
-                                        ? "text-[var(--text-primary)] pointer-events-none cursor-default"
+                                        ? "text-[var(--text-primary)] pointer-events-none cursor-default font-semibold border-b border-[var(--text-primary)] pb-1"
                                         : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                                     }`}
                                 onClick={isActive ? (e) => e.preventDefault() : undefined}
