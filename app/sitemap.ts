@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { siteData } from '@/lib/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://multiverse.arpitsharma.design';
+    const baseUrl = 'https://multiverse-engine.vercel.app';
 
     // Static clean routes
     const staticRoutes = [
