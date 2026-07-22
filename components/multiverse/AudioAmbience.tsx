@@ -7,12 +7,12 @@ import { UniverseId } from "@/lib/types";
 export default function AudioAmbience() {
     const { universe } = useUniverse();
     const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
 
     // Refs for node gain controls to allow smooth fading
     const gainsRef = useRef<Record<string, GainNode>>({});
     const activeUniverseRef = useRef<UniverseId>("LOBBY");
-    const isPlayingRef = useRef(false);
+    const isPlayingRef = useRef(true);
     const hoveredPlanetRef = useRef<string | null>(null);
 
     // Reference to scheduled intervals or timeouts for generative sounds
@@ -21,9 +21,13 @@ export default function AudioAmbience() {
     useEffect(() => {
         // Read persisted preference on mount
         const storedPref = localStorage.getItem("multiverse_audio_enabled");
-        if (storedPref === "true") {
+        if (storedPref === "false") {
+            setIsPlaying(false);
+            isPlayingRef.current = false;
+        } else {
             setIsPlaying(true);
             isPlayingRef.current = true;
+            localStorage.setItem("multiverse_audio_enabled", "true");
         }
 
         // Initialize AudioContext
