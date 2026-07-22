@@ -136,7 +136,9 @@ export default function AboutClient() {
                             </a>
                             <span className="text-neutral-700">|</span>
                             <a
-                                href="#"
+                                href="/Arpit_Sharma_Resume.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-neutral-400 hover:text-white transition-colors"
                             >
                                 Resume
