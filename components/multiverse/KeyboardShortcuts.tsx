@@ -21,7 +21,7 @@ export default function KeyboardShortcuts({ showPlanetShortcuts = false }: Keybo
             </button>
 
             {showShortcuts && (
-                <div className="absolute bottom-16 right-0 w-64 bg-black/80 backdrop-blur-md border border-white/10 rounded-lg p-4 shadow-2xl font-sans">
+                <div className="absolute bottom-32 right-0 w-64 bg-black/80 backdrop-blur-md border border-white/10 rounded-lg p-4 shadow-2xl font-sans">
                     <h3 className="text-white font-bold text-sm mb-3 uppercase tracking-wider">Keyboard Shortcuts</h3>
                     <div className="space-y-2 text-xs">
                         {showPlanetShortcuts && (
