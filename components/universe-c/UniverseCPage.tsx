@@ -105,8 +105,8 @@ export default function UniverseCPage({ onReturnToLobby }: { onReturnToLobby?: (
                                     key={chap.id}
                                     onClick={() => scrollToSection(chap.id)}
                                     className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-mono transition-all text-left cursor-pointer ${isActive
-                                            ? "bg-[#18181b] text-emerald-400 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.1)] font-semibold"
-                                            : "text-zinc-400 hover:text-zinc-200 hover:bg-[#18181b]/50"
+                                        ? "bg-[#18181b] text-emerald-400 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.1)] font-semibold"
+                                        : "text-zinc-400 hover:text-zinc-200 hover:bg-[#18181b]/50"
                                         }`}
                                 >
                                     <Icon size={14} className={isActive ? "text-emerald-400" : "text-zinc-500"} />
@@ -115,15 +115,6 @@ export default function UniverseCPage({ onReturnToLobby }: { onReturnToLobby?: (
                             );
                         })}
                     </nav>
-                </div>
-
-                <div className="pt-6 border-t border-[#1f1f23] flex flex-col gap-2">
-                    <button
-                        onClick={onReturnToLobby || (() => setUniverse('LOBBY'))}
-                        className="w-full py-2 rounded bg-zinc-900 hover:bg-zinc-800 text-zinc-300 text-xs font-mono border border-zinc-800 transition-colors flex items-center justify-center gap-2 cursor-pointer"
-                    >
-                        <span>← Return to Multiverse</span>
-                    </button>
                 </div>
             </aside>
 
