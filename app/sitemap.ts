@@ -4,14 +4,14 @@ import { siteData } from '@/lib/data';
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://multiverse.arpitsharma.design';
 
-    // Static routes
+    // Static clean routes
     const staticRoutes = [
         '',
-        '/personal-journal',
-        '/work',
-        '/storytelling',
-        '/systems-thinking',
-        '/mars-signal-station',
+        '/human',
+        '/builder',
+        '/thinker',
+        '/curiosity',
+        '/future',
         '/about',
         '/contact',
         '/process',

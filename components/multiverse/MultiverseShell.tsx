@@ -67,11 +67,13 @@ export default function MultiverseShell() {
             {!booted && <BootSequence onComplete={() => setBooted(true)} />}
 
             {booted && inLobby && (
-                <PlanetaryLobby onSelect={handleUniverseSelect} />
+                <main id="main-content">
+                    <PlanetaryLobby onSelect={handleUniverseSelect} />
+                </main>
             )}
 
             {booted && !inLobby && (
-                <>
+                <main id="main-content">
                     <SpaceBackground />
                     <AnimatePresence mode="wait">
                         {universe === 'A' && (
@@ -102,7 +104,7 @@ export default function MultiverseShell() {
                     </AnimatePresence>
                     <DimensionSwitcher />
                     <KeyboardShortcuts showPlanetShortcuts={false} />
-                </>
+                </main>
             )}
 
             {booted && <LocalTimeIndicator />}
