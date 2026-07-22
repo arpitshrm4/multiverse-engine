@@ -14,7 +14,7 @@ export default function FooterB() {
                 </div>
                 <div className="flex gap-6 mt-4 md:mt-0">
                     <a href="https://linkedin.com/in/arpitshrma" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
-                    <a href="/Arpit_Sharma_Resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Resume</a>
+                    <a href="https://docs.google.com/document/d/1Ye0Q6Os6GxTXECnGlFYQHJtfMsk7dJewBCPUD0eyi24/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Resume</a>
                 </div>
             </div>
         </footer>

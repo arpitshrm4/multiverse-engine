@@ -136,7 +136,7 @@ export default function AboutClient() {
                             </a>
                             <span className="text-neutral-700">|</span>
                             <a
-                                href="/Arpit_Sharma_Resume.pdf"
+                                href="https://docs.google.com/document/d/1Ye0Q6Os6GxTXECnGlFYQHJtfMsk7dJewBCPUD0eyi24/edit?usp=sharing"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-neutral-400 hover:text-white transition-colors"
