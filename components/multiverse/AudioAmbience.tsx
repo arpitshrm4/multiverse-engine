@@ -167,7 +167,7 @@ export default function AudioAmbience() {
             onClick={(e) => {
                 toggleAudio();
             }}
-            className="fixed bottom-6 right-6 z-[100] p-3 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 group cursor-pointer"
+            className="fixed bottom-24 right-8 z-[100] p-3 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 group cursor-pointer"
             aria-label={isPlaying ? "Mute Sound" : "Enable Sound"}
         >
             {isPlaying ? (
