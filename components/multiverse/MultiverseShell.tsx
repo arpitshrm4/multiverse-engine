@@ -27,7 +27,7 @@ const warpTransition = {
 
 export default function MultiverseShell() {
     const { universe, setUniverse } = useUniverse();
-    const [booted, setBooted] = useState(false);
+    const [booted, setBooted] = useState(true);
     const inLobby = universe === 'LOBBY';
 
     useEffect(() => {

@@ -244,11 +244,13 @@ function RefinedPlanet({
                         e.stopPropagation();
                         document.body.style.cursor = 'pointer';
                         setHoveredId(planet.id);
+                        window.dispatchEvent(new CustomEvent('hover-planet', { detail: { planet: planet.id } }));
                     }}
                     onPointerOut={(e) => {
                         e.stopPropagation();
                         document.body.style.cursor = 'auto';
                         setHoveredId(null);
+                        window.dispatchEvent(new CustomEvent('hover-planet', { detail: { planet: null } }));
                     }}
                 >
                     {/* Atmosphere Halo / Glow */}

@@ -429,8 +429,14 @@ export default function UniverseDPage() {
                                 }}
                             >
                                 <button
-                                    onClick={() => setSelectedNodeId(node.id)}
-                                    onMouseEnter={() => setHoveredNodeId(node.id)}
+                                    onClick={() => {
+                                        setSelectedNodeId(node.id);
+                                        window.dispatchEvent(new CustomEvent('play-sound', { detail: { type: 'resonance' } }));
+                                    }}
+                                    onMouseEnter={() => {
+                                        setHoveredNodeId(node.id);
+                                        window.dispatchEvent(new CustomEvent('play-sound', { detail: { type: 'sparkle' } }));
+                                    }}
                                     onMouseLeave={() => setHoveredNodeId(null)}
                                     className={`px-4 py-3 rounded-2xl text-left transition-all duration-500 border cursor-pointer flex items-center gap-3 ${personalityStyle} ${isSelected
                                             ? "scale-125 ring-4 ring-purple-300 border-white z-40 shadow-[0_0_40px_rgba(168,85,247,0.6)]"

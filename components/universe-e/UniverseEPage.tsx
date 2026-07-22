@@ -235,7 +235,10 @@ export default function UniverseEPage() {
                 {/* Statically Positioned Navigation controls below the content */}
                 <div className="w-full flex items-center justify-between border-t border-white/[0.05] pt-8 mt-12 max-w-2xl">
                     <button
-                        onClick={() => setCurrentStep((prev) => Math.max(0, prev - 1))}
+                        onClick={() => {
+                            setCurrentStep((prev) => Math.max(0, prev - 1));
+                            window.dispatchEvent(new CustomEvent('play-sound', { detail: { type: 'swell' } }));
+                        }}
                         disabled={currentStep === 0}
                         className={`flex items-center gap-2 text-xs font-mono uppercase tracking-widest transition-all cursor-pointer ${currentStep === 0 ? "opacity-25 pointer-events-none" : "text-neutral-400 hover:text-white"
                             }`}
@@ -248,7 +251,10 @@ export default function UniverseEPage() {
                         {steps.map((_, idx) => (
                             <button
                                 key={idx}
-                                onClick={() => setCurrentStep(idx)}
+                                onClick={() => {
+                                    setCurrentStep(idx);
+                                    window.dispatchEvent(new CustomEvent('play-sound', { detail: { type: 'swell' } }));
+                                }}
                                 className={`w-2 h-2 rounded-full transition-all cursor-pointer ${idx === currentStep ? "bg-amber-400 w-4" : "bg-neutral-700 hover:bg-neutral-500"
                                     }`}
                             />
@@ -256,7 +262,10 @@ export default function UniverseEPage() {
                     </div>
 
                     <button
-                        onClick={() => setCurrentStep((prev) => Math.min(steps.length - 1, prev + 1))}
+                        onClick={() => {
+                            setCurrentStep((prev) => Math.min(steps.length - 1, prev + 1));
+                            window.dispatchEvent(new CustomEvent('play-sound', { detail: { type: 'swell' } }));
+                        }}
                         disabled={currentStep === steps.length - 1}
                         className={`flex items-center gap-2 text-xs font-mono uppercase tracking-widest transition-all cursor-pointer ${currentStep === steps.length - 1 ? "opacity-25 pointer-events-none" : "text-neutral-400 hover:text-white"
                             }`}
