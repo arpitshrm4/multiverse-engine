@@ -73,24 +73,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
                             [ Click or Press Any Key to Initiate ]
                         </span>
                     </motion.div>
-
-                    {/* Keyboard Controls Notice (Pointed out by user request) */}
-                    <div className="pt-8 border-t border-white/[0.04] text-left max-w-sm mx-auto space-y-3">
-                        <div className="flex items-center gap-2 text-xs font-bold text-neutral-400 uppercase tracking-widest mb-1">
-                            <Keyboard className="w-4 h-4 text-amber-500/80" />
-                            <span>Keyboard Navigation Options</span>
-                        </div>
-                        <div className="space-y-1 text-xs text-neutral-500 font-mono">
-                            <div className="flex justify-between">
-                                <span>A, B, C, D, E</span>
-                                <span className="text-amber-500/60">Switch Dimensions</span>
-                            </div>
-                            <div className="flex justify-between">
-                                <span>ESC / R</span>
-                                <span className="text-amber-500/60">Return to Lobby</span>
-                            </div>
-                        </div>
-                    </div>
+                    {/* Keyboard Controls Notice Removed */}
                 </div>
             </div>
         );
