@@ -170,16 +170,24 @@ export default function AudioAmbience() {
             className="fixed bottom-24 right-8 z-[100] p-3 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 group cursor-pointer"
             aria-label={isPlaying ? "Mute Sound" : "Enable Sound"}
         >
+            <style>{`
+                @keyframes waveSlide {
+                    0% { transform: translateX(0px); }
+                    100% { transform: translateX(-12px); }
+                }
+                .wave-anim {
+                    animation: waveSlide 1.2s linear infinite;
+                }
+            `}</style>
             {isPlaying ? (
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="overflow-hidden">
+                    <g className="wave-anim">
+                        <path d="M -12 12 Q -9 6, -6 12 T 0 12 T 6 12 T 12 12 T 18 12 T 24 12 T 30 12" />
+                    </g>
                 </svg>
             ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                    <line x1="23" y1="9" x2="17" y2="15"></line>
-                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <line x1="4" y1="12" x2="20" y2="12" />
                 </svg>
             )}
             <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 bg-black/80 text-xs rounded text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
