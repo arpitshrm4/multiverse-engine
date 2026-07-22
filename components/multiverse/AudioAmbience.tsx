@@ -14,38 +14,10 @@ export default function AudioAmbience() {
     const activeUniverseRef = useRef<UniverseId>("LOBBY");
     const isPlayingRef = useRef(true);
     const hoveredPlanetRef = useRef<string | null>(null);
+    const graphSetupDoneRef = useRef(false);
 
     // Reference to scheduled intervals or timeouts for generative sounds
     const generativeIntervalsRef = useRef<any[]>([]);
-
-    useEffect(() => {
-        // Read persisted preference on mount
-        const storedPref = localStorage.getItem("multiverse_audio_enabled");
-        if (storedPref === "false") {
-            setIsPlaying(false);
-            isPlayingRef.current = false;
-        } else {
-            setIsPlaying(true);
-            isPlayingRef.current = true;
-            localStorage.setItem("multiverse_audio_enabled", "true");
-        }
-
-        // Initialize AudioContext
-        const initAudio = () => {
-            if (typeof window !== 'undefined' && !audioContext) {
-                const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
-                setAudioContext(ctx);
-            }
-        };
-        initAudio();
-
-        return () => {
-            cleanupGenerative();
-            if (audioContext) {
-                audioContext.close();
-            }
-        };
-    }, []);
 
     const cleanupGenerative = () => {
         generativeIntervalsRef.current.forEach(clearInterval);
@@ -57,125 +29,125 @@ export default function AudioAmbience() {
         if (!audioContext || !isPlayingRef.current) return;
         const now = audioContext.currentTime;
 
-        if (type === "sparkle") {
-            // High frequency chimes (Curiosity)
-            const osc = audioContext.createOscillator();
-            const gain = audioContext.createGain();
-            osc.type = "sine";
-            const freq = 1200 + Math.random() * 800;
-            osc.frequency.setValueAtTime(freq, now);
-            gain.gain.setValueAtTime(0.015, now);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
-            osc.connect(gain);
-            gain.connect(audioContext.destination);
-            osc.start(now);
-            osc.stop(now + 0.5);
-        } else if (type === "resonance") {
-            // Rich crystal resonance (Curiosity node click)
-            const osc = audioContext.createOscillator();
-            const osc2 = audioContext.createOscillator();
-            const gain = audioContext.createGain();
-            osc.type = "sine";
-            osc2.type = "sine";
-            osc.frequency.setValueAtTime(523.25, now); // C5
-            osc2.frequency.setValueAtTime(783.99, now); // G5
-            gain.gain.setValueAtTime(0.02, now);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
-            osc.connect(gain);
-            osc2.connect(gain);
-            gain.connect(audioContext.destination);
-            osc.start(now);
-            osc2.start(now);
-            osc.stop(now + 1.2);
-            osc2.stop(now + 1.2);
-        } else if (type === "click") {
-            // Technical relay click (Builder)
-            const osc = audioContext.createOscillator();
-            const gain = audioContext.createGain();
-            osc.type = "triangle";
-            osc.frequency.setValueAtTime(150, now);
-            osc.frequency.exponentialRampToValueAtTime(50, now + 0.05);
-            gain.gain.setValueAtTime(0.03, now);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
-            osc.connect(gain);
-            gain.connect(audioContext.destination);
-            osc.start(now);
-            osc.stop(now + 0.05);
-        } else if (type === "bell") {
-            // Deep resonant bell (Thinker)
-            const osc = audioContext.createOscillator();
-            const gain = audioContext.createGain();
-            osc.type = "sine";
-            osc.frequency.setValueAtTime(220, now); // A3
-            gain.gain.setValueAtTime(0.03, now);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 2.0);
-            osc.connect(gain);
-            gain.connect(audioContext.destination);
-            osc.start(now);
-            osc.stop(now + 2.0);
-        } else if (type === "paper") {
-            // Paper rustle / page turn (Human)
-            const bufferSize = audioContext.sampleRate * 0.2; // 200ms
-            const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
-            const data = buffer.getChannelData(0);
-            for (let i = 0; i < bufferSize; i++) {
-                data[i] = Math.random() * 2 - 1;
+        try {
+            if (type === "sparkle") {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                osc.type = "sine";
+                const freq = 1200 + Math.random() * 800;
+                osc.frequency.setValueAtTime(freq, now);
+                gain.gain.setValueAtTime(0.015, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
+                osc.start(now);
+                osc.stop(now + 0.5);
+            } else if (type === "resonance") {
+                const osc = audioContext.createOscillator();
+                const osc2 = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                osc.type = "sine";
+                osc2.type = "sine";
+                osc.frequency.setValueAtTime(523.25, now); // C5
+                osc2.frequency.setValueAtTime(783.99, now); // G5
+                gain.gain.setValueAtTime(0.02, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
+                osc.connect(gain);
+                osc2.connect(gain);
+                gain.connect(audioContext.destination);
+                osc.start(now);
+                osc2.start(now);
+                osc.stop(now + 1.2);
+                osc2.stop(now + 1.2);
+            } else if (type === "click") {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                osc.type = "triangle";
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(50, now + 0.05);
+                gain.gain.setValueAtTime(0.03, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
+                osc.start(now);
+                osc.stop(now + 0.05);
+            } else if (type === "bell") {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                osc.type = "sine";
+                osc.frequency.setValueAtTime(220, now); // A3
+                gain.gain.setValueAtTime(0.03, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 2.0);
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
+                osc.start(now);
+                osc.stop(now + 2.0);
+            } else if (type === "paper") {
+                const bufferSize = audioContext.sampleRate * 0.2;
+                const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
+                const noise = audioContext.createBufferSource();
+                noise.buffer = buffer;
+                const filter = audioContext.createBiquadFilter();
+                filter.type = "bandpass";
+                filter.frequency.setValueAtTime(1000, now);
+                filter.Q.setValueAtTime(1, now);
+                const gain = audioContext.createGain();
+                gain.gain.setValueAtTime(0.02, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(audioContext.destination);
+                noise.start(now);
+            } else if (type === "swell") {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                osc.type = "sine";
+                osc.frequency.setValueAtTime(329.63, now); // E4
+                gain.gain.setValueAtTime(0.001, now);
+                gain.gain.linearRampToValueAtTime(0.025, now + 0.8);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 2.5);
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
+                osc.start(now);
+                osc.stop(now + 2.5);
             }
-            const noise = audioContext.createBufferSource();
-            noise.buffer = buffer;
-            const filter = audioContext.createBiquadFilter();
-            filter.type = "bandpass";
-            filter.frequency.setValueAtTime(1000, now);
-            filter.Q.setValueAtTime(1, now);
-            const gain = audioContext.createGain();
-            gain.gain.setValueAtTime(0.02, now);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
-            noise.connect(filter);
-            filter.connect(gain);
-            gain.connect(audioContext.destination);
-            noise.start(now);
-        } else if (type === "swell") {
-            // Optimistic Sunrise Swell (Future)
-            const osc = audioContext.createOscillator();
-            const gain = audioContext.createGain();
-            osc.type = "sine";
-            osc.frequency.setValueAtTime(329.63, now); // E4
-            gain.gain.setValueAtTime(0.001, now);
-            gain.gain.linearRampToValueAtTime(0.025, now + 0.8);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + 2.5);
-            osc.connect(gain);
-            gain.connect(audioContext.destination);
-            osc.start(now);
-            osc.stop(now + 2.5);
+        } catch (e) {
+            console.error("Interaction sound playback failed:", e);
         }
     };
 
     // Synthesize the 6 distinct environments
-    const setupAmbienceGraph = () => {
-        if (!audioContext) return;
-        const now = audioContext.currentTime;
+    const setupAmbienceGraph = (ctx: AudioContext) => {
+        if (graphSetupDoneRef.current) return;
+        graphSetupDoneRef.current = true;
+
+        const now = ctx.currentTime;
 
         // Master output node
-        const masterVolume = audioContext.createGain();
-        masterVolume.gain.setValueAtTime(0.04, now); // Quiet comfortable master level
-        masterVolume.connect(audioContext.destination);
+        const masterVolume = ctx.createGain();
+        masterVolume.gain.setValueAtTime(0.04, now); // Low master volume
+        masterVolume.connect(ctx.destination);
 
         // -------------------------------------------------------------
         // 1. LOBBY: Deep Space Drone
         // -------------------------------------------------------------
-        const gLobby = audioContext.createGain();
-        gLobby.gain.setValueAtTime(0.001, now);
+        const gLobby = ctx.createGain();
+        gLobby.gain.setValueAtTime(0.12, now); // Set default values immediately
         gLobby.connect(masterVolume);
         gainsRef.current["LOBBY"] = gLobby;
 
-        const lobbyOsc1 = audioContext.createOscillator();
+        const lobbyOsc1 = ctx.createOscillator();
         lobbyOsc1.type = "sine";
         lobbyOsc1.frequency.setValueAtTime(55, now); // A1 sub-bass
-        const lobbyOsc2 = audioContext.createOscillator();
+        const lobbyOsc2 = ctx.createOscillator();
         lobbyOsc2.type = "sine";
         lobbyOsc2.frequency.setValueAtTime(55.4, now); // Detune beats
 
-        const lobbyFilter = audioContext.createBiquadFilter();
+        const lobbyFilter = ctx.createBiquadFilter();
         lobbyFilter.type = "lowpass";
         lobbyFilter.frequency.setValueAtTime(180, now);
 
@@ -188,35 +160,35 @@ export default function AudioAmbience() {
         // -------------------------------------------------------------
         // 2. HUMAN (A): Nostalgic Vinyl Tape Hum & Generative Piano Notes
         // -------------------------------------------------------------
-        const gA = audioContext.createGain();
+        const gA = ctx.createGain();
         gA.gain.setValueAtTime(0.001, now);
         gA.connect(masterVolume);
         gainsRef.current["A"] = gA;
 
         // Warm tape hum / crackle
-        const bufferSize = audioContext.sampleRate * 2.0;
-        const noiseBuffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+        const bufferSize = ctx.sampleRate * 2.0;
+        const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
         const noiseData = noiseBuffer.getChannelData(0);
         for (let i = 0; i < bufferSize; i++) {
             noiseData[i] = (Math.random() * 2 - 1) * 0.05;
         }
-        const noiseSource = audioContext.createBufferSource();
+        const noiseSource = ctx.createBufferSource();
         noiseSource.buffer = noiseBuffer;
         noiseSource.loop = true;
-        const noiseFilter = audioContext.createBiquadFilter();
+        const noiseFilter = ctx.createBiquadFilter();
         noiseFilter.type = "bandpass";
         noiseFilter.frequency.setValueAtTime(800, now);
         noiseSource.connect(noiseFilter);
         noiseFilter.connect(gA);
         noiseSource.start(now);
 
-        // Generative Piano Note triggers (Pentatonic warm scale)
+        // Generative Piano Note triggers
         const notesPentatonic = [220.00, 246.94, 277.18, 329.63, 392.00]; // A3, B3, C#4, E4, G4
         const triggerPianoA = () => {
             if (activeUniverseRef.current !== "A" || !isPlayingRef.current) return;
-            const tNow = audioContext.currentTime;
-            const pOsc = audioContext.createOscillator();
-            const pGain = audioContext.createGain();
+            const tNow = ctx.currentTime;
+            const pOsc = ctx.createOscillator();
+            const pGain = ctx.createGain();
             pOsc.type = "sine";
             const randomNote = notesPentatonic[Math.floor(Math.random() * notesPentatonic.length)];
             pOsc.frequency.setValueAtTime(randomNote, tNow);
@@ -233,17 +205,17 @@ export default function AudioAmbience() {
         // -------------------------------------------------------------
         // 3. BUILDER (B): Technical Low Synth Pulse & Click Hum
         // -------------------------------------------------------------
-        const gB = audioContext.createGain();
+        const gB = ctx.createGain();
         gB.gain.setValueAtTime(0.001, now);
         gB.connect(masterVolume);
         gainsRef.current["B"] = gB;
 
-        const bOsc = audioContext.createOscillator();
+        const bOsc = ctx.createOscillator();
         bOsc.type = "triangle";
         bOsc.frequency.setValueAtTime(82.41, now); // E2 precision hum
-        const bLFO = audioContext.createOscillator();
-        bLFO.frequency.setValueAtTime(0.5, now); // Technical 2-second pulse
-        const bLFOGain = audioContext.createGain();
+        const bLFO = ctx.createOscillator();
+        bLFO.frequency.setValueAtTime(0.5, now);
+        const bLFOGain = ctx.createGain();
         bLFOGain.gain.setValueAtTime(0.015, now);
         bLFO.connect(bLFOGain);
         bLFOGain.connect(gB.gain);
@@ -255,15 +227,15 @@ export default function AudioAmbience() {
         // -------------------------------------------------------------
         // 4. THINKER (C): Evolving Long-Reverb Harmonic Pad
         // -------------------------------------------------------------
-        const gC = audioContext.createGain();
+        const gC = ctx.createGain();
         gC.gain.setValueAtTime(0.001, now);
         gC.connect(masterVolume);
         gainsRef.current["C"] = gC;
 
         const chordOscs = [
-            audioContext.createOscillator(),
-            audioContext.createOscillator(),
-            audioContext.createOscillator()
+            ctx.createOscillator(),
+            ctx.createOscillator(),
+            ctx.createOscillator()
         ];
         chordOscs.forEach(o => {
             o.type = "sine";
@@ -271,7 +243,6 @@ export default function AudioAmbience() {
             o.start(now);
         });
 
-        // Slow evolving chord cycle (Am -> G -> F)
         let chordIndex = 0;
         const chords = [
             [110.00, 130.81, 164.81], // Am
@@ -280,7 +251,7 @@ export default function AudioAmbience() {
         ];
         const updateThinkerChord = () => {
             if (activeUniverseRef.current !== "C") return;
-            const tNow = audioContext.currentTime;
+            const tNow = ctx.currentTime;
             const currentChord = chords[chordIndex];
             chordOscs.forEach((o, i) => {
                 o.frequency.exponentialRampToValueAtTime(currentChord[i], tNow + 3.0);
@@ -294,17 +265,17 @@ export default function AudioAmbience() {
         // -------------------------------------------------------------
         // 5. CURIOSITY (D): Crystal Shimmer & High Bell Sparks
         // -------------------------------------------------------------
-        const gD = audioContext.createGain();
+        const gD = ctx.createGain();
         gD.gain.setValueAtTime(0.001, now);
         gD.connect(masterVolume);
         gainsRef.current["D"] = gD;
 
-        const dOsc = audioContext.createOscillator();
+        const dOsc = ctx.createOscillator();
         dOsc.type = "sine";
         dOsc.frequency.setValueAtTime(440, now);
-        const dLFO = audioContext.createOscillator();
-        dLFO.frequency.setValueAtTime(0.2, now); // Ethereal drift
-        const dLFOGain = audioContext.createGain();
+        const dLFO = ctx.createOscillator();
+        dLFO.frequency.setValueAtTime(0.2, now);
+        const dLFOGain = ctx.createGain();
         dLFOGain.gain.setValueAtTime(0.005, now);
         dLFO.connect(dLFOGain);
         dLFOGain.connect(gD.gain);
@@ -313,7 +284,6 @@ export default function AudioAmbience() {
         dOsc.start(now);
         dLFO.start(now);
 
-        // Random crystal sparkles
         const triggerSparkleD = () => {
             if (activeUniverseRef.current !== "D" || !isPlayingRef.current) return;
             playInteractionSound("sparkle");
@@ -324,19 +294,19 @@ export default function AudioAmbience() {
         // -------------------------------------------------------------
         // 6. FUTURE (E): Expansive Sunrise Orchestral Swell
         // -------------------------------------------------------------
-        const gE = audioContext.createGain();
+        const gE = ctx.createGain();
         gE.gain.setValueAtTime(0.001, now);
         gE.connect(masterVolume);
         gainsRef.current["E"] = gE;
 
-        const eOsc1 = audioContext.createOscillator();
+        const eOsc1 = ctx.createOscillator();
         eOsc1.type = "triangle";
-        eOsc1.frequency.setValueAtTime(110, now); // Warm base
-        const eOsc2 = audioContext.createOscillator();
+        eOsc1.frequency.setValueAtTime(110, now);
+        const eOsc2 = ctx.createOscillator();
         eOsc2.type = "sine";
         eOsc2.frequency.setValueAtTime(220, now);
 
-        const eFilter = audioContext.createBiquadFilter();
+        const eFilter = ctx.createBiquadFilter();
         eFilter.type = "lowpass";
         eFilter.frequency.setValueAtTime(200, now);
 
@@ -346,11 +316,10 @@ export default function AudioAmbience() {
         eOsc1.start(now);
         eOsc2.start(now);
 
-        // Sunrise filter swell cycle
         let swellUp = true;
         const triggerSunriseSwell = () => {
             if (activeUniverseRef.current !== "E") return;
-            const tNow = audioContext.currentTime;
+            const tNow = ctx.currentTime;
             const targetFreq = swellUp ? 600 : 150;
             eFilter.frequency.exponentialRampToValueAtTime(targetFreq, tNow + 5.0);
             swellUp = !swellUp;
@@ -372,7 +341,6 @@ export default function AudioAmbience() {
             let targetVal = 0.001; // Muted/fade-out level
 
             if (key === targetUniverse) {
-                // Determine target universe specific level
                 if (key === "LOBBY") targetVal = 0.12;
                 else if (key === "A") targetVal = 0.1;
                 else if (key === "B") targetVal = 0.08;
@@ -381,7 +349,6 @@ export default function AudioAmbience() {
                 else if (key === "E") targetVal = 0.12;
             }
 
-            // Crossfade over 2.5 seconds (linear curve scheduling)
             gainNode.gain.cancelScheduledValues(now);
             gainNode.gain.setValueAtTime(gainNode.gain.value, now);
             gainNode.gain.linearRampToValueAtTime(targetVal, now + 2.5);
@@ -395,35 +362,26 @@ export default function AudioAmbience() {
         else if (targetUniverse === "E") playInteractionSound("swell");
     };
 
-    // Initial audio initiation (on click/keydown)
-    const stopAudio = () => {
-        if (audioContext) {
-            audioContext.suspend().catch(console.error);
-        }
-    };
+    // Mount context setup
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
 
-    const initiateAmbience = async () => {
-        if (!audioContext) return;
-        if (audioContext.state === "suspended") {
-            await audioContext.resume();
-        }
-        setupAmbienceGraph();
-        crossfadeAmbience(universe);
-    };
+        // Read persisted preference
+        const storedPref = localStorage.getItem("multiverse_audio_enabled");
+        const defaultOn = storedPref !== "false";
+        setIsPlaying(defaultOn);
+        isPlayingRef.current = defaultOn;
 
-    const toggleAudio = () => {
-        const nextState = !isPlaying;
-        setIsPlaying(nextState);
-        isPlayingRef.current = nextState;
-        localStorage.setItem("multiverse_audio_enabled", String(nextState));
+        // Create context
+        const ctx = new (window.AudioContext || (window as any).webkitAudioContext)();
+        setupAmbienceGraph(ctx);
+        setAudioContext(ctx);
 
-        if (nextState) {
-            initiateAmbience().catch(console.error);
-        } else {
+        return () => {
             cleanupGenerative();
-            stopAudio();
-        }
-    };
+            ctx.close();
+        };
+    }, []);
 
     // Watch universe state transitions and trigger crossfade
     useEffect(() => {
@@ -444,7 +402,6 @@ export default function AudioAmbience() {
             const planet = e.detail?.planet;
             hoveredPlanetRef.current = planet;
 
-            // Softly blend hovered planet's sound in the lobby
             if (!audioContext || gainsRef.current === undefined || activeUniverseRef.current !== "LOBBY") return;
             const now = audioContext.currentTime;
 
@@ -453,7 +410,7 @@ export default function AudioAmbience() {
                 const gainNode = gainsRef.current[key];
                 if (!gainNode) return;
 
-                const targetVal = key === planet ? 0.15 : 0.001; // Blend at low volume
+                const targetVal = key === planet ? 0.05 : 0.001; // Soft blend
                 gainNode.gain.cancelScheduledValues(now);
                 gainNode.gain.setValueAtTime(gainNode.gain.value, now);
                 gainNode.gain.linearRampToValueAtTime(targetVal, now + 1.2);
@@ -468,20 +425,46 @@ export default function AudioAmbience() {
         };
     }, [audioContext]);
 
-    // Window gesture capture for browsers autoplay policy
+    // Window gesture capture for browser autoplay rules
     useEffect(() => {
         const handleGesture = () => {
-            if (isPlaying && audioContext && audioContext.state === "suspended") {
-                initiateAmbience().catch(console.error);
+            if (isPlayingRef.current && audioContext && audioContext.state === "suspended") {
+                audioContext.resume().then(() => {
+                    // Update initial crossfade to catch current universe
+                    crossfadeAmbience(activeUniverseRef.current);
+                }).catch(console.error);
             }
         };
-        window.addEventListener("click", handleGesture, { once: true });
-        window.addEventListener("keydown", handleGesture, { once: true });
+
+        window.addEventListener("click", handleGesture);
+        window.addEventListener("keydown", handleGesture);
         return () => {
             window.removeEventListener("click", handleGesture);
             window.removeEventListener("keydown", handleGesture);
         };
-    }, [audioContext, isPlaying]);
+    }, [audioContext]);
+
+    const toggleAudio = () => {
+        const nextState = !isPlaying;
+        setIsPlaying(nextState);
+        isPlayingRef.current = nextState;
+        localStorage.setItem("multiverse_audio_enabled", String(nextState));
+
+        if (!audioContext) return;
+
+        if (nextState) {
+            if (audioContext.state === "suspended") {
+                audioContext.resume().then(() => {
+                    crossfadeAmbience(universe);
+                }).catch(console.error);
+            } else {
+                crossfadeAmbience(universe);
+            }
+        } else {
+            cleanupGenerative();
+            audioContext.suspend().catch(console.error);
+        }
+    };
 
     return (
         <button
