@@ -18,10 +18,10 @@ export default function DimensionSwitcher() {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50, x: "-50%" }}
+            animate={{ opacity: 1, y: 0, x: "-50%" }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 p-2 bg-black/40 backdrop-blur-md border border-white/10 rounded-full shadow-2xl flex gap-1 items-center"
+            className="fixed bottom-8 left-1/2 z-50 p-2 bg-black/40 backdrop-blur-md border border-white/10 rounded-full shadow-2xl flex gap-1 items-center"
         >
             <span className="text-[10px] font-mono text-white/50 uppercase tracking-widest pl-3 pr-2 border-r border-white/10">
                 DIMENSION
