@@ -153,7 +153,7 @@ export default function AudioAmbience() {
 
         // Master output node
         const masterVolume = audioContext.createGain();
-        masterVolume.gain.setValueAtTime(0.18, now); // Consistent low volume (15-25%)
+        masterVolume.gain.setValueAtTime(0.04, now); // Quiet comfortable master level
         masterVolume.connect(audioContext.destination);
 
         // -------------------------------------------------------------
@@ -369,12 +369,12 @@ export default function AudioAmbience() {
 
             if (key === targetUniverse) {
                 // Determine target universe specific level
-                if (key === "LOBBY") targetVal = 0.4;
-                else if (key === "A") targetVal = 0.35;
-                else if (key === "B") targetVal = 0.3;
-                else if (key === "C") targetVal = 0.35;
-                else if (key === "D") targetVal = 0.3;
-                else if (key === "E") targetVal = 0.4;
+                if (key === "LOBBY") targetVal = 0.12;
+                else if (key === "A") targetVal = 0.1;
+                else if (key === "B") targetVal = 0.08;
+                else if (key === "C") targetVal = 0.1;
+                else if (key === "D") targetVal = 0.08;
+                else if (key === "E") targetVal = 0.12;
             }
 
             // Crossfade over 2.5 seconds (linear curve scheduling)
@@ -483,7 +483,7 @@ export default function AudioAmbience() {
         <button
             onClick={toggleAudio}
             className="fixed bottom-24 right-8 z-[100] p-3 bg-black/40 backdrop-blur-md border border-white/10 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 group cursor-pointer"
-            aria-label={isPlaying ? "Mute Ambience" : "Enable Ambience"}
+            aria-label={isPlaying ? "Ambience On" : "Ambience Off"}
         >
             <style>{`
                 @keyframes waveSlide {
@@ -506,7 +506,7 @@ export default function AudioAmbience() {
                 </svg>
             )}
             <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 bg-black/80 text-xs rounded text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none font-mono tracking-widest uppercase">
-                {isPlaying ? "Mute Ambience" : "Enable Audio"}
+                {isPlaying ? "Ambience On" : "Ambience Off"}
             </span>
         </button>
     );
