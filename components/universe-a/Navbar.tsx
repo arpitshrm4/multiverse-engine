@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 const links = [
-    { href: "/personal-journal", label: "Human" },
-    { href: "/work", label: "Builder" },
-    { href: "/storytelling", label: "Thinker" },
-    { href: "/systems-thinking", label: "Curiosity" },
+    { href: "/human", label: "Human" },
+    { href: "/builder", label: "Builder" },
+    { href: "/thinker", label: "Thinker" },
+    { href: "/curiosity", label: "Curiosity" },
     { href: "/about", label: "About" },
 ];
 

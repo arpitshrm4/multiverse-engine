@@ -12,20 +12,25 @@ interface UniverseContextType {
 const UniverseContext = createContext<UniverseContextType | undefined>(undefined);
 
 const pathnameMap: Record<string, UniverseId> = {
+    '/human': 'A',
     '/personal-journal': 'A',
+    '/builder': 'B',
     '/work': 'B',
+    '/thinker': 'C',
     '/storytelling': 'C',
+    '/curiosity': 'D',
     '/systems-thinking': 'D',
+    '/future': 'E',
     '/mars-signal-station': 'E',
 };
 
 const universeUrlMap: Record<UniverseId, string> = {
     'LOBBY': '/',
-    'A': '/personal-journal',
-    'B': '/work',
-    'C': '/storytelling',
-    'D': '/systems-thinking',
-    'E': '/mars-signal-station',
+    'A': '/human',
+    'B': '/builder',
+    'C': '/thinker',
+    'D': '/curiosity',
+    'E': '/future',
 };
 
 export function UniverseProvider({ children }: { children: ReactNode }) {
