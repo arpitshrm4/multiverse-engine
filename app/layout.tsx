@@ -25,7 +25,7 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://multiverse.arpitsharma.design"),
+  metadataBase: new URL("https://multiverse-engine.vercel.app"),
   title: {
     default: "Arpit Sharma | Product Design Leader & Architect",
     template: "%s | Arpit Sharma Portfolio"
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Arpit Sharma | Product Design Leader & Architect",
     description: "Immersive product design portfolio of Arpit Sharma. Experiencing systems thinking, enterprise UX, fintech workflows, and interactive case studies.",
-    url: "https://multiverse.arpitsharma.design",
+    url: "https://multiverse-engine.vercel.app",
     siteName: "Arpit Sharma Multiverse",
     locale: "en_US",
     type: "website",
@@ -68,10 +68,10 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Person",
-                  "@id": "https://multiverse.arpitsharma.design/#person",
+                  "@id": "https://multiverse-engine.vercel.app/#person",
                   "name": "Arpit Sharma",
-                  "url": "https://multiverse.arpitsharma.design",
-                  "image": "https://multiverse.arpitsharma.design/images/hero-spotlight.png",
+                  "url": "https://multiverse-engine.vercel.app",
+                  "image": "https://multiverse-engine.vercel.app/images/hero-spotlight.png",
                   "jobTitle": "Product Design Leader & Architect",
                   "sameAs": [
                     "https://www.linkedin.com/in/arpitshrma",
@@ -89,34 +89,34 @@ export default function RootLayout({
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://multiverse.arpitsharma.design/#website",
-                  "url": "https://multiverse.arpitsharma.design",
+                  "@id": "https://multiverse-engine.vercel.app/#website",
+                  "url": "https://multiverse-engine.vercel.app",
                   "name": "Arpit Sharma | Multiverse Portfolio",
-                  "publisher": { "@id": "https://multiverse.arpitsharma.design/#person" }
+                  "publisher": { "@id": "https://multiverse-engine.vercel.app/#person" }
                 },
                 {
                   "@type": "ProfilePage",
-                  "@id": "https://multiverse.arpitsharma.design/#profile",
-                  "url": "https://multiverse.arpitsharma.design",
-                  "about": { "@id": "https://multiverse.arpitsharma.design/#person" }
+                  "@id": "https://multiverse-engine.vercel.app/#profile",
+                  "url": "https://multiverse-engine.vercel.app",
+                  "about": { "@id": "https://multiverse-engine.vercel.app/#person" }
                 },
                 {
                   "@type": "BreadcrumbList",
-                  "@id": "https://multiverse.arpitsharma.design/#breadcrumb",
+                  "@id": "https://multiverse-engine.vercel.app/#breadcrumb",
                   "itemListElement": [
-                    { "@type": "ListItem", "position": 1, "name": "Human", "item": "https://multiverse.arpitsharma.design/human" },
-                    { "@type": "ListItem", "position": 2, "name": "Builder", "item": "https://multiverse.arpitsharma.design/builder" },
-                    { "@type": "ListItem", "position": 3, "name": "Thinker", "item": "https://multiverse.arpitsharma.design/thinker" },
-                    { "@type": "ListItem", "position": 4, "name": "Curiosity", "item": "https://multiverse.arpitsharma.design/curiosity" },
-                    { "@type": "ListItem", "position": 5, "name": "Future", "item": "https://multiverse.arpitsharma.design/future" },
-                    { "@type": "ListItem", "position": 6, "name": "About", "item": "https://multiverse.arpitsharma.design/about" }
+                    { "@type": "ListItem", "position": 1, "name": "Human", "item": "https://multiverse-engine.vercel.app/human" },
+                    { "@type": "ListItem", "position": 2, "name": "Builder", "item": "https://multiverse-engine.vercel.app/builder" },
+                    { "@type": "ListItem", "position": 3, "name": "Thinker", "item": "https://multiverse-engine.vercel.app/thinker" },
+                    { "@type": "ListItem", "position": 4, "name": "Curiosity", "item": "https://multiverse-engine.vercel.app/curiosity" },
+                    { "@type": "ListItem", "position": 5, "name": "Future", "item": "https://multiverse-engine.vercel.app/future" },
+                    { "@type": "ListItem", "position": 6, "name": "About", "item": "https://multiverse-engine.vercel.app/about" }
                   ]
                 },
                 {
                   "@type": "CreativeWork",
-                  "@id": "https://multiverse.arpitsharma.design/#portfolio",
+                  "@id": "https://multiverse-engine.vercel.app/#portfolio",
                   "name": "Inside the Decision - Gyan Bharatam Case Study",
-                  "author": { "@id": "https://multiverse.arpitsharma.design/#person" },
+                  "author": { "@id": "https://multiverse-engine.vercel.app/#person" },
                   "description": "Enterprise case study detailing product design decisions, trade-offs, and design system scale on the Gyan Bharatam Manuscript Platform."
                 }
               ]

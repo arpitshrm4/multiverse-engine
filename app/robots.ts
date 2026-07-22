@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = 'https://multiverse.arpitsharma.design';
+    const baseUrl = 'https://multiverse-engine.vercel.app';
     return {
         rules: {
             userAgent: '*',
